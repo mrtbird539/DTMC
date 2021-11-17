@@ -18,19 +18,15 @@ const carSchema = new Schema({
     trim: true,
     lowercase: true,
   },
-  modification: [
-    {
-      preformance: {
-        type: String,
-      },
-      functional: {
-        type: String,
-      },
-      cosmetic: {
-        type: String,
-      },
-    },
-  ],
+  mod_preformance: {
+    type: String,
+  },
+  mod_functional: {
+    type: String,
+  },
+  mod_cosmetic: {
+    type: String,
+  },
   // Color?
 });
 
