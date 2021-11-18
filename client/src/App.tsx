@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import 'bulma/css/bulma.min.css';
 import './App.css';
+import { Header } from './components/header';
+import { Navbar } from './components/Navbar';
+import { Body } from './components/body';
+import { CarCard } from './components/carCard';
+import { Footer } from './components/footer';
+
+let coolArray: number[] = []
+coolArray = [1, 2, 3, 4, 5]
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Navbar />
+      <Body />
+      <CarCard title={"Corgi Mobile"}/>
+      <br />
+      <Footer footer={"CAR STUFF"} />
     </div>
   );
 }
