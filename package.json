@@ -2,10 +2,10 @@
   "name": "DTMC",
   "version": "1.0.0",
   "description": "",
-  "main": "server/server.js",
+  "main": "server/src/server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "develop": "cd server && npm run watch && cd ../client && npm start",
+    "start": "node server/src/server.js",
+    "develop": "cd server && npm start && cd ../client && npm start",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build"
   },
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/mrtbird539/DTMC/issues"
   },
-  "homepage": "https://github.com/mrtbird539/DTMC#readme"
+  "homepage": "https://github.com/mrtbird539/DTMC#readme",
+  "devDependencies": {
+   
+  }
 }

@@ -1,8 +1,8 @@
 const {} = require("../models");
 
-const resolvers = {
+export const resolvers = {
   Query: {},
   Mutation: {},
 };
 
-module.exports = resolvers;
+
