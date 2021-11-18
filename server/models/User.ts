@@ -18,6 +18,12 @@ const userSchema = new Schema({
     unique: true,
     validate: [isEmail, "Please enter a valid email address."],
   },
+  cars: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Car"
+    }
+  ]
   // Location?
   // Instagram?
   // Personal URL?
