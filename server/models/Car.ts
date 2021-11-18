@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+import { Schema, model } from "mongoose";
 
 const carSchema = new Schema({
   year: {
@@ -27,6 +27,12 @@ const carSchema = new Schema({
   mod_cosmetic: {
     type: String,
   },
+
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+
   owner: [
     {
       type: Schema.Types.ObjectId,
