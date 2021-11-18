@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node /src/server.js",
+    "start": "node ./dist/server.js",
     "seed": "node seeds/seed.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon ./dist/server.js"
   },
   "keywords": [],
   "author": "",

@@ -1,4 +1,4 @@
-const { gql } = require("apollo-server-express");
+import { gql } from "apollo-server-express";
 
 export const typeDefs = gql`
     type User {
@@ -10,7 +10,7 @@ export const typeDefs = gql`
 
     type Car {
         _id: ID
-        year: Number
+        year: Int
         make: String
         model: String
         mod_preformance: String
@@ -20,7 +20,7 @@ export const typeDefs = gql`
     }
 
     input CarInput {
-        year: Number!
+        year: Int!
         make: String!
         model: String!
         mod_preformance: String
@@ -30,18 +30,17 @@ export const typeDefs = gql`
 
     type Query {
         me: User
-        user(id: ID!): User
         user: [Car]
-        byYear(year: Number!): Car
+        byYear(year: Int!): Car
         byMake(make: String!): Car
         byModel(model: String!): Car
     }
 
     type Mutation {
         saveCar(carData: CarInput!): User
-        editCar(): Car
+        editCar: Car
         deleteCar(_id: ID!): Car
     }
-`;
+ `;
 
 
