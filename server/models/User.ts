@@ -1,6 +1,5 @@
 import isEmail from "validator/lib/isEmail";
-
-const { Schema, model } = require("mongoose");
+import { Schema, model } from "mongoose";
 
 const userSchema = new Schema({
   userName: {
