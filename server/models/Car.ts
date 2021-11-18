@@ -27,6 +27,12 @@ const carSchema = new Schema({
   mod_cosmetic: {
     type: String,
   },
+  owner: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   // Color?
 });
 
