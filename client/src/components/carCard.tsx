@@ -19,6 +19,11 @@ export const CarCard = (props: any) => {
                         </a>
                     </figure>
                 </div>
+                <div className="content">
+                <p className="title is-4">MODS</p>
+                <p className="subtitle is-6">{props.mods}</p>
+
+                </div>
                 <footer className="card-footer">
                     {/* <!-- Skills & technologies used in application --> */}
                     <p className="subtitle is-small">

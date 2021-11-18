@@ -17,7 +17,7 @@ function App() {
       <Header />
       <Navbar />
       <Body />
-      <CarCard title={"Corgi Mobile"}/>
+      <CarCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"}/>
       <br />
       <Footer footer={"CAR STUFF"} />
     </div>
