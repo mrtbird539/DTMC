@@ -4,7 +4,7 @@ const path = require("path");
 
 const db = require("./config/connection");
 
-const { resolvers, typeDefs } = require("./shcemas");
+const { resolvers, typeDefs } = require("./schema");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
