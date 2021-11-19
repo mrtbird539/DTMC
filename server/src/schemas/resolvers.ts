@@ -1,4 +1,4 @@
-import { Car, User } from "../models";
+const {} = require("../models");
 
 export const resolvers = {
   Query: {},
