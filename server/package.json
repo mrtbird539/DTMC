@@ -8,7 +8,7 @@
     "seed": "node seeds/seed.js",
     "watch": "nodemon ./dist/server.js",
     "build": "npx tsc",
-    "postinstall":"tsc"
+    "postinstall":"npm run tsc"
   },
   "keywords": [],
   "author": "",
