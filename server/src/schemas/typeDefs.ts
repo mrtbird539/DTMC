@@ -34,9 +34,12 @@ export const typeDefs = gql`
         byYear(year: Int!): Car
         byMake(make: String!): Car
         byModel(model: String!): Car
+
+        car: [Car]
     }
 
     type Mutation {
+        createCar(carData: CarInput!): User
         saveCar(carData: CarInput!): User
         editCar: Car
         deleteCar(_id: ID!): Car
