@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import { Body } from './components/body';
 import { CarCard } from './components/carCard';
 import { Footer } from './components/footer';
+import { DropDown } from './components/dropDown';
 
 let coolArray: number[] = []
 coolArray = [1, 2, 3, 4, 5]
@@ -16,8 +17,9 @@ function App() {
     <div className="App">
       <Header />
       <Navbar />
+      <DropDown />
       <Body />
-      <CarCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"}/>
+      <CarCard title={"Corgi Mobile"} modTitle={"Huge Spoiler, Chunky Exhaust, Removed Governer"} modList={["cut pipe", "kibble compartment", "transitional windshield"]}/>
       <br />
       <Footer footer={"CAR STUFF"} />
     </div>
