@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/mrtbird539/DTMC#readme",
   "devDependencies": {
+    "@types/validator": "^13.7.0",
     "concurrently": "^6.4.0"
   }
 }
