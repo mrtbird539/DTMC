@@ -2,10 +2,11 @@
   "name": "DTMC",
   "version": "1.0.0",
   "description": "",
-  "main": "server/src/server.js",
+  "main": "server/dist/server.js",
   "scripts": {
-    "start": "node server/src/server.js",
-    "develop": "cd server && npm run watch && cd ../../client && npm start",
+    "start": "node server/dist/server.js",
+    "postinstall": "tsc",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build"
   },
@@ -21,6 +22,6 @@
   },
   "homepage": "https://github.com/mrtbird539/DTMC#readme",
   "devDependencies": {
-   
+    "concurrently": "^6.4.0"
   }
 }
