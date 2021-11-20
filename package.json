@@ -23,5 +23,8 @@
   "devDependencies": {
     "@types/validator": "^13.7.0",
     "concurrently": "^6.4.0"
+  },
+  "engines": {
+    "node": "10.5.0"
   }
 }
