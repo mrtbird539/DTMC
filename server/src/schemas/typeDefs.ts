@@ -19,15 +19,6 @@ export const typeDefs = gql`
         user: User
     }
 
-    input CarInput {
-        year: Int!
-        make: String!
-        model: String!
-        mod_preformance: String
-        mod_functional: String
-        mod_cosmetic: String
-    }
-
     type Query {
         me: User
         user: [Car]
@@ -39,9 +30,8 @@ export const typeDefs = gql`
     }
 
     type Mutation {
-        createCar(carData: CarInput!): User
-        saveCar(carData: CarInput!): User
-        editCar: Car
+        carCreate(): User
+        carUpdate(): User
         deleteCar(_id: ID!): Car
     }
  `;
