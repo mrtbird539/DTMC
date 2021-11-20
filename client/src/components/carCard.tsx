@@ -20,9 +20,8 @@ export const CarCard = (props: any) => {
                     </figure>
                 </div>
                 <div className="content">
-                <p className="title is-4">MODS</p>
-                <p className="subtitle is-6">{props.mods}</p>
-
+                    <p className="title is-4">MODS</p>
+                    <p className="subtitle is-6">{props.modList}</p>
                 </div>
                 <footer className="card-footer">
                     {/* <!-- Skills & technologies used in application --> */}

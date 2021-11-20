@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Navbar = () => {
+export const Navbar = (props:any) => {
 
     return (
         <nav className="navbar is-black" role="navigation" aria-label="main navigation">
@@ -8,7 +8,7 @@ export const Navbar = () => {
             <div className="navbar-start"></div>
         </div>
         {/* <!-- Items in navbar --> */}
-        <div className="navbar-end navbar-menu">
+        <div className="navbar-end">
             <a className="navbar-item" href="#Dummy">Dummy</a>
             <a className="navbar-item" href="#Dummy">Dummy</a>
             <a className="navbar-item" href="#Dummy">Dummy</a>
