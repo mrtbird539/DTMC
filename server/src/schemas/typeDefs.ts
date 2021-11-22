@@ -25,14 +25,17 @@ export const typeDefs = gql`
         byYear(year: Int!): Car
         byMake(make: String!): Car
         byModel(model: String!): Car
-
         car: [Car]
+        carCarousel: [Car]
+        carSearchYMM: [Car]
+        carFindOne(_id: ID!): Car
+        userGarage(_id: ID!): User
     }
 
     type Mutation {
-        carCreate(): User
-        carUpdate(): User
-        deleteCar(_id: ID!): Car
+        carCreate: User
+        carUpdate: User
+        carDelete(_id: ID!): Car
     }
  `;
 
