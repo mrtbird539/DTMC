@@ -26,10 +26,10 @@ export const typeDefs = gql`
         byMake(make: String!): Car
         byModel(model: String!): Car
         car: [Car]
-        carCarousel: Car
-        carSearchYMM: Car
-        carFindOne: Car
-        userGarage: User
+        carCarousel: [Car]
+        carSearchYMM: [Car]
+        carFindOne(_id: ID!): Car
+        userGarage(_id: ID!): User
     }
 
     type Mutation {
