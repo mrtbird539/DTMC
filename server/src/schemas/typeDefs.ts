@@ -2,9 +2,9 @@ import { gql } from "apollo-server-express";
 
 export const typeDefs = gql`
     type User {
-        _id: ID
-        userName: String
-        email: String
+        _id: ID!
+        userName: String!
+        email: String!
         cars: [Car]
     }
 
@@ -25,14 +25,19 @@ export const typeDefs = gql`
         byYear(year: Int!): Car
         byMake(make: String!): Car
         byModel(model: String!): Car
+        carCarousel: Car
+        carSearchYMM: Car
+        carFindOne: Car
+        userGarage: User
 
         car: [Car]
     }
 
     type Mutation {
-        carCreate(): User
-        carUpdate(): User
-        deleteCar(_id: ID!): Car
+        userCreate(userName: String!, email: String!): User
+        carCreate: User
+        carUpdate: User
+        carDelete(_id: ID!): Car
     }
  `;
 
