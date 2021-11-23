@@ -1,4 +1,4 @@
-# Project 3: Dude, There;'s My Car! (DTMC)
+# Project 3: Dude, There's My Car! (DTMC)
 
 ## Description
 
