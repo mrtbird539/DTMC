@@ -3,11 +3,16 @@ import 'bulma/css/bulma.min.css';
 import './App.css';
 import { Header } from './components/header';
 import { Navbar } from './components/Navbar';
-import { Body } from './components/body';
+import { Description } from './components/description';
 import { CarCard } from './components/carCard';
 import { EditCard } from './components/editCard';
 import { Footer } from './components/footer';
 import { DropDown } from './components/dropDown';
+
+
+const tempData = {
+  bio: "HEYYYYYYY!"
+};
 
 function App() {
   return (
@@ -15,7 +20,7 @@ function App() {
       <Header />
       <Navbar />
       <DropDown />
-      <Body />
+      <Description bio={tempData.bio}/>
       <CarCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"}/>
       <EditCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"}/>
       <br />
