@@ -10,7 +10,7 @@
     "start": "npm run build && node ./dist/server.js",
     "seed": "node ./dist/seeds/seed.js",
     "watch": "nodemon ./dist/server.js",
-    "heroku-postbuild": "npm run tsc --prefix server"
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "",
