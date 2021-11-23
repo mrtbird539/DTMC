@@ -16,5 +16,23 @@
         "mod_functional": "Spoiler",
         "mod_cosmetic": "Tinted windows",
         "owner": "61993b9d8173b3b9b903c56b"
+    },
+    {
+        "year": 2017,
+        "make": "Hyundai",
+        "model": "Accent",
+        "mod_preformance": "Removed Governor",
+        "mod_functional": "Split Pipe Exhaust",
+        "mod_cosmetic": "Underglow",
+        "owner": "61993b9d8173b3b9b90KL83"
+    },
+    {
+        "year": 2003,
+        "make": "Ford",
+        "model": "Focus SE",
+        "mod_preformance": "NO^2",
+        "mod_functional": "2in. Drop",
+        "mod_cosmetic": "Massive Spoiler",
+        "owner": "61993b9d8173b3b9b903drD5"
     }
 ]
