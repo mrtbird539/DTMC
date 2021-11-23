@@ -1,6 +1,6 @@
 import isEmail from "validator/lib/isEmail";
 
-const { Schema, model } = require("mongoose");
+import { Schema, model } from "mongoose";
 
 const userSchema = new Schema({
   userName: {
@@ -18,11 +18,15 @@ const userSchema = new Schema({
     unique: true,
     validate: [isEmail, "Please enter a valid email address."],
   },
+  cars: [
+    {
+    type: Schema.Types.ObjectId,
+    ref: "Car"
+    }
+  ]
   // Location?
   // Instagram?
   // Personal URL?
 });
 
-const User = model("User", userSchema);
-
-module.exports = User;
+export const User = model("User", userSchema);

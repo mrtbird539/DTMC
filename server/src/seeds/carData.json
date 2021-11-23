@@ -1,0 +1,20 @@
+[
+    {
+        "year": 1995,
+        "make": "Ford",
+        "model": "Junk",
+        "mod_preformance": "Dunno",
+        "mod_functional": "Glass packs",
+        "mod_cosmetic": "Green Paint",
+        "owner": "61993b9d8173b3b9b903c56b"
+    },
+    {
+        "year": 2006,
+        "make": "Volkswagon",
+        "model": "Passat",
+        "mod_preformance": "Poo",
+        "mod_functional": "Spoiler",
+        "mod_cosmetic": "Tinted windows",
+        "owner": "61993b9d8173b3b9b903c56b"
+    }
+]

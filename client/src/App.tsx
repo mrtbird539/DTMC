@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import 'bulma/css/bulma.min.css';
 import './App.css';
+import { Header } from './components/header';
+import { Navbar } from './components/Navbar';
+import { Body } from './components/body';
+import { CarCard } from './components/carCard';
+import { EditCard } from './components/editCard';
+import { Footer } from './components/footer';
+import { DropDown } from './components/dropDown';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Navbar />
+      <DropDown />
+      <Body />
+      <CarCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"}/>
+      <EditCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"}/>
+      <br />
+      <Footer footer={"CAR STUFF"} />
     </div>
   );
 }

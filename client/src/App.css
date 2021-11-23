@@ -7,6 +7,24 @@
   pointer-events: none;
 }
 
+div.is-offset-1 {
+  border: none;
+  background: #ff7a59;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 500ms ease; 
+}
+
+div.is-offset-1:hover{
+  color: #ff7a59;
+  border: #f73808 solid 1px;
+  background:#fff;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
