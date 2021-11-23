@@ -4,11 +4,11 @@
   "description": "",
   "main": "server/dist/server.js",
   "scripts": {
-    "start": "cd client && npm install && npm run build $$ cd .. $$ node server/dist/server.js",
+    "start": "node server/dist/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "npm run start && cd server && npm run start",
-    "heroku-postbuild": "npm run tsc --prefix server"
+    "heroku-postbuild": "cd client  && npm run build $$ cd .. $$ npm run tsc --prefix server"
   },
   "repository": {
     "type": "git",
