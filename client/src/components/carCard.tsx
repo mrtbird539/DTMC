@@ -1,33 +1,33 @@
 import React from "react";
+import './components.css';
 
 export const CarCard = (props: any) => {
 
     return (
-        <div className="column is-4 is-offset-1">
-            <div className="card is-fullwidth">
+        <div className="has-background-grey-darker column is-4 is-offset-1">
+            <div className="has-background-danger card is-fullwidth">
                 <header className="card-header">
-                    <p className="card-header-title">
+                    <p className="has-text-white card-header-title">
                         {props.title}
                     </p>
                 </header>
-                <div className="card-image">
+                <div className="has-background-danger card-image">
                     <figure className="image">
                         {/* <!-- Image is a link to the live site --> */}
-                        <a href="http://placecorgi.com/250" target="_blank" rel="noopener noreferrer">
-                            <img src="http://placecorgi.com/250"
-                                alt="Dummy"></img>
+                        <a href= {props.userCarPhoto} target="_blank" rel="noopener noreferrer">
+                            <img src= {props.userCarPhoto}
+                                alt="CarPhoto"></img>
                         </a>
                     </figure>
                 </div>
-                <div className="content">
-                    <p className="title is-4">MODS</p>
-                    <p className="subtitle is-6">{props.mods}</p>
+                <div className="has-background-danger content">
+                    <p className="has-text-black title is-4">Modifications:</p>
+                    <p className="has-text-white subtitle is-6">{props.modList}</p>
+
                 </div>
-                <footer className="card-footer">
+                <footer className="has-background-danger card-footer">
                     {/* <!-- Skills & technologies used in application --> */}
-                    <p className="subtitle is-small">
-                        "Uncle Ben's Original"
-                    </p>
+                    <p className="has-text-white subtitle is-small">{props.userInfo}</p>
                 </footer>
             </div>
         </div>
