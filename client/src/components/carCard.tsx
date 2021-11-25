@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export const CarCard = (props: any) => {
 
     return (
