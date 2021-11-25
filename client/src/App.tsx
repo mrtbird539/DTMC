@@ -1,31 +1,32 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import 'bulma/css/bulma.min.css';
 import './App.css';
+
 import { Header } from './components/header';
 import { Navbar } from './components/Navbar';
-import { Description } from './components/description';
-import { CarCard } from './components/carCard';
-import { EditCard } from './components/editCard';
 import { Footer } from './components/footer';
 import { DropDown } from './components/dropDown';
 
-
-const tempData = {
-  bio: "HEYYYYYYY!"
-};
+import { GaragePage } from "./pages/Garage";
+import { HomePage } from "./pages/Home";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Navbar />
-      <DropDown />
-      <Description bio={tempData.bio}/>
-      <CarCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"}/>
-      <EditCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"}/>
-      <br />
-      <Footer footer={"CAR STUFF"} />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Navbar />
+        {/* <DropDown /> */}
+        {/* Router pages here */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/myGarage" element={<GaragePage />} />
+        </Routes>
+        <Footer footer={"CAR STUFF"} />
+      </div>
+    </BrowserRouter>
   );
 }
 
