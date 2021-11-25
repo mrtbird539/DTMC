@@ -13,8 +13,8 @@ export const Navbar = (props: any) => {
             <div className="navbar-end">
                 <LoginButton />
                 <LogoutButton />
-                <a className="navbar-item" href="#Dummy">Dummy</a>
-                <a className="navbar-item" href="#Dummy">Dummy</a>
+                <a className="navbar-item" href="/">Home</a>
+                <a className="navbar-item" href="/myGarage">Garage</a>
                 <a className="navbar-item" href="#Dummy">Dummy</a>
             </div>
         </nav>
