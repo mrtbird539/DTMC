@@ -26,5 +26,6 @@
   },
   "engines": {
     "node": "14.17.4"
-  }
+  },
+  "dependencies": {}
 }
