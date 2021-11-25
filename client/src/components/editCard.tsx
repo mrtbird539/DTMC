@@ -3,8 +3,8 @@ import React from "react";
 export const EditCard = (props: any) => {
 
     return (
-        <div className="column is-4 is-offset-1">
-            <div className="card is-fullwidth">
+        <div className="has-background-grey-darker column is-4 is-offset-1">
+            <div className="has-background-danger card is-fullwidth">
                 
             <form className="form new-project-form">
                 <div className="column">
@@ -19,21 +19,21 @@ export const EditCard = (props: any) => {
                         <div className="card-image">
                             <figure className="image">
                                 {/* <!-- Image is a link to the live site --> */}
-                                <a href="http://placecorgi.com/250" target="_blank" rel="noopener noreferrer">
-                                    <img src="http://placecorgi.com/250"
-                                        alt="Dummy"></img>
+                                <a href={props.userCarPhoto} target="_blank" rel="noopener noreferrer">
+                                    <img src={props.userCarPhoto}
+                                        alt="CarPhoto"></img>
                                 </a>
                             </figure>
                         </div>
                         <div className="field">
-                            <label className="label">Photo </label>
+                            <label className="label">Photo:</label>
                             <div className="control">
                                 <textarea className="input" id="description" placeholder="Enter URL Here" name="description"></textarea>
                             </div>
                         </div>
 
                         <div className="field">
-                            <label className="label">Mods:</label>
+                            <label className="label">Modifications:</label>
                             <div className="control">
                                 <textarea className="textarea" id="description" placeholder={props.mods} name="description"></textarea>
                             </div>
@@ -42,7 +42,7 @@ export const EditCard = (props: any) => {
                         <div className="field">
                             <label className="label">Footer:</label>
                             <div className="control">
-                                <textarea className="input" id="description" placeholder="Footer" name="description"></textarea>
+                                <textarea className="input" id="description" placeholder={props.userInfo} name="description"></textarea>
                             </div>
                         </div>
 

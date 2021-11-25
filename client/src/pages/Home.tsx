@@ -9,7 +9,7 @@ export function HomePage() {
     return (
         <>
             <Description bio={"This is the homepage, pretty slick ain't it?"} />
-            <CarCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"} />
+            <CarCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"} userCarPhoto={"Place Photo Here!"} userInfo={"Put Your Contact Info Here!"} />
             <EditCard title={"Corgi Mobile"} mods={"Huge Spoiler, Chunky Exhaust, Removed Governer"} />
             <br />
         </>
