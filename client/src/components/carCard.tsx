@@ -23,6 +23,7 @@ export const CarCard = (props: any) => {
                 <div className="has-background-danger content">
                     <p className="has-text-black title is-4">Modifications:</p>
                     <p className="has-text-white subtitle is-6">{props.modList}</p>
+
                 </div>
                 <footer className="has-background-danger card-footer">
                     {/* <!-- Skills & technologies used in application --> */}

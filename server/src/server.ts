@@ -12,30 +12,30 @@ const PORT = process.env.PORT || 3001;
 let server: any = null;
 
 async function startServer() {
-   server = new ApolloServer({
-        typeDefs,
-        resolvers,
-    });
+  server = new ApolloServer({
+    typeDefs,
+    resolvers,
+  });
 
-    await server.start();
+  await server.start();
 
-    server.applyMiddleware({ app });   
+  server.applyMiddleware({ app });
 }
 
 startServer();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 if (process.env.NODE_ENV === "production") {
+  
+  console.log("__________________________ \n PRODUCTION MODE \n __________________________");
   app.use(express.static(path.join(__dirname, "../../client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(process.cwd(), "./client/build/index.html"));
+  });
+  
+
 }
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../client/build/index.html"));
-});
-
-console.log("Changed");
 
 db.once("open", () => {
   app.listen(PORT, () => {

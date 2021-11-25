@@ -1,28 +1,32 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import 'bulma/css/bulma.min.css';
 import './App.css';
+
 import { Header } from './components/header';
 import { Navbar } from './components/Navbar';
-import { Body } from './components/body';
-import { CarCard } from './components/carCard';
 import { Footer } from './components/footer';
 import { DropDown } from './components/dropDown';
 
-let coolArray: number[] = []
-coolArray = [1, 2, 3, 4, 5]
-
+import { GaragePage } from "./pages/Garage";
+import { HomePage } from "./pages/Home";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Navbar />
-      <DropDown />
-      <Body />
-      <CarCard title={"Corgi Mobile"} modTitle={"Huge Spoiler, Chunky Exhaust, Removed Governer"} modList={["cut pipe", "kibble compartment", "transitional windshield"]}/>
-      <br />
-      <Footer footer={"CAR STUFF"} />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Navbar />
+        {/* <DropDown /> */}
+        {/* Router pages here */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/myGarage" element={<GaragePage />} />
+        </Routes>
+        <Footer footer={"CAR STUFF"} />
+      </div>
+    </BrowserRouter>
   );
 }
 
