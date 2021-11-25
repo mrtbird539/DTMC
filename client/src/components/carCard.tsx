@@ -1,5 +1,4 @@
 import React from "react";
-import './components.css';
 
 export const CarCard = (props: any) => {
 
