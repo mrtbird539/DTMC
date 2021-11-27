@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Description } from '../components/description';
 import { CarCard } from '../components/carCard';
 
 const dummyCar = {
@@ -21,8 +20,6 @@ export function HomePage() {
 
     return (
         <>
-            <Description bio={"This is the homepage, pretty slick ain't it?"} />
-            
             <CarCard 
             title={`${dummyCar.make} ${dummyCar.model}`} 
             modList={`Performance: \n ${dummyCar.mod_preformance} \n Functional: \n ${dummyCar.mod_functional} \n Cosmetic: \n ${dummyCar.mod_cosmetic}`} 
