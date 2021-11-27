@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import { Description } from '../components/description';
 import { CarCard } from '../components/carCard';
 import { EditCard } from '../components/editCard';
 import { EditCarButton } from '../components/EditCarButton';
@@ -33,9 +32,6 @@ export const GaragePage = () => {
     // Returns the tsx car page
     return (
         <>
-            {/* <DropDown /> */}
-            <Description bio={"Hey check out my page"} />
-
             <CarCard title={`${dummyCar.make} ${dummyCar.model}`}
                 modList={`Performance: \n ${dummyCar.mod_preformance} \n Functional: \n ${dummyCar.mod_functional} \n Cosmetic: \n ${dummyCar.mod_cosmetic}`}
                 userCarPhoto={dummyCar.photo}
