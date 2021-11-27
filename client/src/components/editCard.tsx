@@ -35,7 +35,7 @@ export const EditCard = (props: any) => {
                         <div className="card-back-color field">
                             <label className="has-text-white label">Modifications:</label>
                             <div className="has-text-white control">
-                                <textarea className="textarea" id="description" placeholder={props.mods} name="description"></textarea>
+                                <textarea className="textarea" id="description" placeholder={props.modList} name="description"></textarea>
                             </div>
                         </div>
 
