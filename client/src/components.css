@@ -1,3 +1,15 @@
+
 div.card-back-color {
     background-color: #F08f39;
+
+
+.user-comp-box {
+    float: left;
+    border-color: black;
+    border-width: 5px;
+}
+
+.car-border {
+    border-radius: 25px;
+
 }
