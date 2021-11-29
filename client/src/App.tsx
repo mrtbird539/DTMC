@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bulma/css/bulma.min.css';
+import './components.css';
 import './App.css';
 import { Header } from './components/header';
 import { Navbar } from './components/Navbar';
