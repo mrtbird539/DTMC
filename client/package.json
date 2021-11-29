@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.5.4",
     "@auth0/auth0-react": "^1.8.0",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
@@ -12,6 +13,7 @@
     "@types/react": "^17.0.35",
     "@types/react-dom": "^17.0.11",
     "bulma": "^0.9.3",
+    "graphql": "^16.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
