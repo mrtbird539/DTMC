@@ -1,33 +1,45 @@
-import React from "react";
+import React, { useState, useEffect, Fragment, Component } from "react";
+import Select from "react-select";
+import AsyncSelect from 'react-select/async';
 
 export const DropDown = (props: any) => {
+  const [year, setYear] = useState([]);
+  const [make, setMake] = useState([]);
+  const [model, setModel] = useState(null);
 
+  const getModel = () => {
+    return carModels.get(
+      `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`
+    ).then(results => {
+        const res = results.data
+        return res
+    })
+  };
 
-    return (
-        <div className="dropdown is-active">
-            <div className="dropdown-trigger">
-                <button className="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-                    <span>Content</span>
-                    <span className="icon is-small">
-                        <i className="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                </button>
-            </div>
-            <div className="dropdown-menu" id="dropdown-menu2" role="menu">
-                <div className="dropdown-content">
-                    <div className="dropdown-item">
-                        <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
-                    </div>
-                    <hr className="dropdown-divider" />
-                    <div className="dropdown-item">
-                        <p>You simply need to use a <code>&lt; div&gt; </code> instead.</p>
-                    </div>
-                    <hr className="dropdown-divider" />
-                    <a href="#" className="dropdown-item">
-                        This is a link
-                    </a>
-                </div>
-            </div>
-        </div>
-    );
+  const handleInputChange = value => {
+    setValue(value);
+  };
+ 
+  const handleChange = value => {
+    setSelectedValue(value);
+  }
+
+  return (
+    <Fragment>
+      <Select options={year} />
+      <Select options={make} />
+      {/* <Select options={model} /> */}
+      <AsyncSelect
+        cacheOptions
+        defaultOptions
+        value={model}
+        getOptionLabel={e => e.first_name + ' ' + e.last_name}
+        loadOptions={getModel}
+        onInputChange={handleInputChange}
+        onChange={handleChange} />
+      {/* <button type="button" onClick={}>
+        Search
+        </button> */}
+    </Fragment>
+  );
 };
