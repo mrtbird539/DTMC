@@ -1,27 +1,29 @@
-import React, { useState, useEffect, Fragment, Component } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useState, Fragment } from "react";
 import Select from "react-select";
+import axios from "axios";
 import AsyncSelect from 'react-select/async';
 
 export const DropDown = (props: any) => {
   const [year, setYear] = useState([]);
   const [make, setMake] = useState([]);
-  const [model, setModel] = useState(null);
+  const [model, setModel] = useState([]);
 
-  const getModel = () => {
-    return carModels.get(
+  const [inputValue, setValue] = useState('');
+
+  const getModel = async () => {
+    const result = await axios(
       `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`
-    ).then(results => {
-        const res = results.data
-        return res
-    })
+    );
+    setModel(result.data);
   };
 
-  const handleInputChange = value => {
+  const handleInputChange = (value: any) => {
     setValue(value);
   };
  
-  const handleChange = value => {
-    setSelectedValue(value);
+  const handleChange = (value: any) => {
+    setModel(value);
   }
 
   return (
@@ -33,13 +35,13 @@ export const DropDown = (props: any) => {
         cacheOptions
         defaultOptions
         value={model}
-        getOptionLabel={e => e.first_name + ' ' + e.last_name}
+        // getOptionLabel={e => e.Model_Name}
+        // getOptionValue={e => e.Model_Name}
         loadOptions={getModel}
         onInputChange={handleInputChange}
-        onChange={handleChange} />
-      {/* <button type="button" onClick={}>
-        Search
-        </button> */}
+        onChange={handleChange}
+        />
     </Fragment>
   );
 };
+
