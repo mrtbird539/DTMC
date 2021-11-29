@@ -1,4 +1,5 @@
 import { Car, User } from "../models";
+import { auth } from "express-openid-connect";
 
 export const resolvers = {
   Query: {
@@ -24,6 +25,13 @@ export const resolvers = {
   },
 
   Mutation: {
+    //CREATE USER
+    userCreate: async (parent: any, args: object) => {
+
+      const newUser = await User.create(args);
+      return newUser;
+
+    },
     // CREATE new car
     carCreate: async (args: object) => {
       return Car.create(args)

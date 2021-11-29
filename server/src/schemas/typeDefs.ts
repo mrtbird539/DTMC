@@ -33,6 +33,7 @@ export const typeDefs = gql`
     }
 
     type Mutation {
+        userCreate(userName: String!, email: String!): User
         carCreate: User
         carUpdate: User
         carDelete(_id: ID!): Car
