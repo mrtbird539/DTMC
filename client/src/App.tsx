@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import 'bulma/css/bulma.min.css';
+import 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Shippori+Antique+B1&display=swap';
 import './components.css';
 import './App.css';
 
