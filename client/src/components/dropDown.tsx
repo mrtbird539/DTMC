@@ -1,33 +1,47 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useState, Fragment } from "react";
+import Select from "react-select";
+import axios from "axios";
+import AsyncSelect from 'react-select/async';
 
 export const DropDown = (props: any) => {
+  const [year, setYear] = useState([]);
+  const [make, setMake] = useState([]);
+  const [model, setModel] = useState([]);
 
+  const [inputValue, setValue] = useState('');
 
-    return (
-        <div className="dropdown is-active">
-            <div className="dropdown-trigger">
-                <button className="button" aria-haspopup="true" aria-controls="dropdown-menu2">
-                    <span>Content</span>
-                    <span className="icon is-small">
-                        <i className="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                </button>
-            </div>
-            <div className="dropdown-menu" id="dropdown-menu2" role="menu">
-                <div className="dropdown-content">
-                    <div className="dropdown-item">
-                        <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
-                    </div>
-                    <hr className="dropdown-divider" />
-                    <div className="dropdown-item">
-                        <p>You simply need to use a <code>&lt; div&gt; </code> instead.</p>
-                    </div>
-                    <hr className="dropdown-divider" />
-                    <a href="#" className="dropdown-item">
-                        This is a link
-                    </a>
-                </div>
-            </div>
-        </div>
+  const getModel = async () => {
+    const result = await axios(
+      `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`
     );
+    setModel(result.data);
+  };
+
+  const handleInputChange = (value: any) => {
+    setValue(value);
+  };
+ 
+  const handleChange = (value: any) => {
+    setModel(value);
+  }
+
+  return (
+    <Fragment>
+      <Select options={year} />
+      <Select options={make} />
+      {/* <Select options={model} /> */}
+      <AsyncSelect
+        cacheOptions
+        defaultOptions
+        value={model}
+        // getOptionLabel={e => e.Model_Name}
+        // getOptionValue={e => e.Model_Name}
+        loadOptions={getModel}
+        onInputChange={handleInputChange}
+        onChange={handleChange}
+        />
+    </Fragment>
+  );
 };
+
