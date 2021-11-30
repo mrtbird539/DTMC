@@ -14,7 +14,7 @@ export const EditCarButton = (props: any) => {
     return (
         <>
             {checkForEdit(props.owner)
-                && <button className="button is-fullwidth is-link" id="submit" type="button">Edit</button>
+                && <button className="button is-black" onClick={props.click} id="submit" type="button">Edit</button>
             }
         </>
     );

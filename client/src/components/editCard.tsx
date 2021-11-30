@@ -18,7 +18,6 @@ export const EditCard = (props: any) => {
 
                         <div className="card-image">
                             <figure className="image">
-                                {/* <!-- Image is a link to the live site --> */}
                                 <a href={props.userCarPhoto} target="_blank" rel="noopener noreferrer">
                                     <img src={props.userCarPhoto}
                                         alt="CarPhoto"></img>
@@ -45,21 +44,13 @@ export const EditCard = (props: any) => {
                                 <textarea className="has-text-white input" id="description" placeholder={props.userInfo} name="description"></textarea>
                             </div>
                         </div>
-
-                        <div className="notification is-primary added">
-                            Changes Saved!
-                        </div>
-
-                        <div className="notification is-danger complete">
-                            Error!
-                        </div>
-
+{/* 
                         <div className="field is-grouped">
                             <div className="control">
                                 <button className="button is-link" id="submit" type="button">Save</button>
                                 <button className="button is-danger" id="submit" type="button">Cancel</button>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="field is-grouped">
                             <div className="control">
