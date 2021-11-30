@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import { CarCard } from '../components/carCard';
 import { EditCard } from '../components/editCard';
-import { EditCarButton } from '../components/EditCarButton';
-import LoginButton from '../components/login';
-// import { DropDown } from '../components/dropDown';
 
 const dummyCars = [
     {
@@ -69,13 +66,13 @@ export const GaragePage = () => {
                     userInfo={car.createdAt}
                     owner={car.owner}
                 />
-                <button onClick={() => renderEditCar(car._id, car)} className="button is-link" id="submit" type="button">Edit</button>
+                <button onClick={() => renderEditCar(car._id, car, false)} className="button is-link" id="submit" type="button">Edit</button>
             </>)}</div>;
 
-    let [myCars, setMyCars] = useState(initialState);
+    let [myCars, setMyCars] = useState<object>(initialState);
 
-    const renderEditCar = (carId: string, props: any): any => {
-        if (carId == props._id) {
+    const renderEditCar = (carId: string, props: any, isNewCar: boolean): any => {
+        if (carId == props._id || carId == "") {
             return setMyCars(
                 <>
                     <EditCard key={props._id} title={`${props.year} ${props.make} ${props.model}`}
@@ -96,6 +93,9 @@ export const GaragePage = () => {
 
     return (
         <>
+            <br />
+            <button onClick={() => renderEditCar("", "", true)} className="button is-success" id="submit" type="button">Add a car</button>
+            <br />
             <br />
             {myCars}
             <br />
