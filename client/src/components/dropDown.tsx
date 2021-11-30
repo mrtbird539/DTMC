@@ -1,15 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import Select from "react-select";
 import axios from "axios";
 import AsyncSelect from 'react-select/async';
 
 export const DropDown = (props: any) => {
-  const [year, setYear] = useState([]);
+  const [year, setYear] = useState<number | undefined>(2000);
+  const [yearOptions, setYearOptions] = useState([{ value: 1995, label: '1995' }]);
   const [make, setMake] = useState([]);
   const [model, setModel] = useState([]);
 
   const [inputValue, setValue] = useState('');
+
+  useEffect( () => {
+    console.log({year});
+  }, [year]);
 
   const getModel = async () => {
     const result = await axios(
@@ -18,17 +23,9 @@ export const DropDown = (props: any) => {
     setModel(result.data);
   };
 
-  const handleInputChange = (value: any) => {
-    setValue(value);
-  };
- 
-  const handleChange = (value: any) => {
-    setModel(value);
-  }
-
   return (
     <Fragment>
-      <Select options={year} />
+      <Select options={yearOptions} onChange={(e) => setYear(e?.value)}/>
       <Select options={make} />
       {/* <Select options={model} /> */}
       <AsyncSelect
@@ -38,8 +35,8 @@ export const DropDown = (props: any) => {
         // getOptionLabel={e => e.Model_Name}
         // getOptionValue={e => e.Model_Name}
         loadOptions={getModel}
-        onInputChange={handleInputChange}
-        onChange={handleChange}
+        onInputChange={setValue}
+        // onChange={setModel}
         />
     </Fragment>
   );

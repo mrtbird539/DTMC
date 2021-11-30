@@ -25,7 +25,7 @@ function App() {
         <div className="App">
           <Header />
           <Navbar />
-          {/* <DropDown /> */}
+          <DropDown />
           {/* Router pages here */}
           <Routes>
             <Route path="/" element={<HomePage />} />
