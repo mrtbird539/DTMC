@@ -45,6 +45,21 @@ const dummyCars = [
     }
 ];
 
+const newCarModel = {
+    isNew: true,
+    _id: "",
+    year: "",
+    make: "",
+    model: "",
+    mod_preformance: "",
+    mod_functional: "",
+    mod_cosmetic: "",
+    owner: [""],
+    createdAt: "",
+    __v: 0,
+    photo: ""
+};
+
 export const GaragePage = () => {
 
     // Not currently implemented
@@ -57,33 +72,47 @@ export const GaragePage = () => {
         return isUserPage;
     };
 
-    let initialState = <div className="columns is-multiline is-variable">
-        {dummyCars.map((car, index) =>
-            <>
-                <CarCard key={car._id} title={`${car.year} ${car.make} ${car.model}`}
-                    modList={`Performance: \n ${car.mod_preformance} \n Functional: \n ${car.mod_functional} \n Cosmetic: \n ${car.mod_cosmetic}`}
-                    userCarPhoto={car.photo}
-                    userInfo={car.createdAt}
-                    owner={car.owner}
-                />
-                <button onClick={() => renderEditCar(car._id, car, false)} className="button is-link" id="submit" type="button">Edit</button>
-            </>)}</div>;
+    let initialState =
+        <div className="columns is-multiline is-variable">
+            {dummyCars.map((car, index) =>
+                <>
+                    <CarCard
+                        key={car._id}
+                        title={`${car.year} ${car.make} ${car.model}`}
+                        modPerformance={car.mod_preformance}
+                        modFunctional={car.mod_functional}
+                        modCosmetic={car.mod_cosmetic}
+                        userCarPhoto={car.photo}
+                        userInfo={car.createdAt}
+                        owner={car.owner}
+                    />
+                    <button onClick={() => renderEditCar(car._id, car)} className="button is-link" id="submit" type="button">Edit</button>
+                </>
+            )}
+        </div>;
+
+
+
 
     let [myCars, setMyCars] = useState<object>(initialState);
 
-    const renderEditCar = (carId: string, props: any, isNewCar: boolean): any => {
+    const renderEditCar = (carId: string, props: any) => {
         if (carId == props._id || carId == "") {
             return setMyCars(
                 <>
-                    <EditCard key={props._id} title={`${props.year} ${props.make} ${props.model}`}
-                        modList={`Performance: \n ${props.mod_preformance} \n Functional: \n ${props.mod_functional} \n Cosmetic: \n ${props.mod_cosmetic}`}
+                    <EditCard
+                        key={props._id}
+                        title={`${props.year} ${props.make} ${props.model}`}
+                        modPerformance={props.mod_preformance}
+                        modFunctional={props.mod_functional}
+                        modCosmetic={props.mod_cosmetic}
                         userCarPhoto={props.photo}
                         userInfo={props.createdAt}
                         owner={props.owner}
                     />
-                    <div className="column is-4 is-offset-1">
+                    <div className="column is-4 is-offset-4">
                         <button onClick={() => setMyCars(initialState)} className="button is-link" id="submit" type="button">Save</button>
-                        <button onClick={() => setMyCars(initialState)} className="button is-link" id="submit" type="button">Cancel</button>
+                        <button onClick={() => setMyCars(initialState)} className="button is-danger" id="submit" type="button">Cancel</button>
                     </div>
                 </>
             )
@@ -91,10 +120,11 @@ export const GaragePage = () => {
         return console.log("No such car!");
     }
 
+    // JXS Component
     return (
         <>
             <br />
-            <button onClick={() => renderEditCar("", "", true)} className="button is-success" id="submit" type="button">Add a car</button>
+            <button onClick={() => renderEditCar("", newCarModel)} className="button is-success" id="submit" type="button">Add a car</button>
             <br />
             <br />
             {myCars}
