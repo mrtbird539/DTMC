@@ -29,7 +29,7 @@ div.is-offset-1 {
 div.is-offset-1:hover{
   color: #ff7a59;
   border: #f73808 solid 1px;
-  background:#fff;
+  background:rgb(247, 180, 56);
 }
 
 @media (prefers-reduced-motion: no-preference) {
