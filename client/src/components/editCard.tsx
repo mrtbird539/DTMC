@@ -64,7 +64,7 @@ export const EditCard = (props: any) => {
                             </div>
 
                             <div className="card-back-color field">
-                                <label className="label">Footer:</label>
+                                <label className="label">User:</label>
                                 <div className="control">
                                     <textarea className="has-text-white input" id="description" placeholder={props.userInfo} name="description"></textarea>
                                 </div>

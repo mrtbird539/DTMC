@@ -1,4 +1,5 @@
 import React from 'react';
+import { DropDown } from '../components/dropDown';
 
 import { CarCard } from '../components/carCard';
 
@@ -61,6 +62,7 @@ export function HomePage() {
 
     return (
         <>
+            <DropDown />
             <br />
             <div className="columns is-multiline">
                 {dummyCars.map((car) =>
