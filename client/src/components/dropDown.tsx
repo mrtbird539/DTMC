@@ -17,16 +17,19 @@ export const DropDown = (props: any) => {
   }, [year]);
 
   const getModel = async () => {
-    const result = await axios(
-      `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`
+    const result = await axios.request({
+      method: "GET",
+      url: `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/honda/modelyear/2004?format=json`
+    }
     );
+    console.log(result.data.Results);
     setModel(result.data);
   };
 
   return (
     <Fragment>
       <Select options={yearOptions} onChange={(e) => setYear(e?.value)}/>
-      <Select options={make} />
+      <Select options={make}/>
       {/* <Select options={model} /> */}
       <AsyncSelect
         cacheOptions
