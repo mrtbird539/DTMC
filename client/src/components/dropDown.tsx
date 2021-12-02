@@ -12,7 +12,7 @@ export const DropDown = (props: any) => {
   >([]);
 
   useEffect(() => {
-    if (!make) {
+    if (make) {
       getModel(make, year);
     }
   }, [make]);
