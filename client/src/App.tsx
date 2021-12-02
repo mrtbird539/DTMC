@@ -25,7 +25,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/myGarage" element={<GaragePage />} />
         </Routes>
-        <Footer footer={"CAR STUFF"} />
+        <Footer footer={"The Car Experts: Josef Siraco - Kelley McDonnell - Jef Mitchell - Tyler Smith - Alex Parker - &copy; 2021"} />
       </div>
     </BrowserRouter>
   );
