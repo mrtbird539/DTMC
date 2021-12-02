@@ -31,18 +31,24 @@ export const DropDown = (props: any) => {
   };
 
   return (
-    <Fragment>
-      <Select options={yearOptions} onChange={(e) => setYear(e?.value)} />
+    <div className="columns">
       <Select
+        className="column"
+        options={yearOptions}
+        onChange={(e) => setYear(e?.value)}
+      />
+      <Select
+        className="column"
         options={makeOptions}
         isDisabled={!year}
         onChange={(e) => setMake(e?.value)}
       />
       <Select
+        className="column"
         options={modelOptions}
         isDisabled={!make}
         onChange={(e) => setModel(e?.value)}
       />
-    </Fragment>
+    </div>
   );
 };
