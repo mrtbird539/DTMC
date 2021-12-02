@@ -2,9 +2,16 @@ import React from "react";
 
 export const CarCard = (props: any) => {
 
+    const checkForEdit = (isUser: any): object => {
+        if (isUser) {
+            return <button onClick={props.setCars} className="button is-warning is-fullwidth is-rounded fontChange" id="submit" type="button">Edit</button>
+
+        };
+        return <></>;
+    };
+
     return (
         <>
-        <div className="column is-1"></div>
             <div className="car-border has-background-black column is-4">
                 <div className="card is-fullwidth card-back-color is-offset-1">
                     <header className="card-back-color card-header">
@@ -12,7 +19,7 @@ export const CarCard = (props: any) => {
                             {props.title}
                         </p>
                     </header>
-                    <div className="car-border card-back-color card-image">
+                    <div className="card-back-color card-image">
                         <figure className="image">
                             <a href={props.userCarPhoto} target="_blank" rel="noopener noreferrer">
                                 <img src={props.userCarPhoto}
@@ -32,9 +39,7 @@ export const CarCard = (props: any) => {
                         <p className="title is-4">Cosmetic Mods</p>
                         <p className="has-text-white subtitle is-6">{props.modCosmetic}</p>
                     </div>
-                    <footer className="card-footer">
-                        <p className="has-text-white subtitle is-small">{props.userInfo}</p>
-                    </footer>
+                    {checkForEdit(props.isUser)}
                 </div>
             </div>
         </>
