@@ -76,6 +76,7 @@ const newCarModel = {
 export const GaragePage = () => {
 
     let initialState =
+    //This will need to be an async function to call the DB
         <div className="columns is-multiline is-variable">
             {dummyCars.map((car, index) =>
                 <>
@@ -93,9 +94,6 @@ export const GaragePage = () => {
                 </>
             )}
         </div>;
-
-
-
 
     let [myCars, setMyCars] = useState<object>(initialState);
 
