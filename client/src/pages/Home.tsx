@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { DropDown } from '../components/dropDown';
 import { CarCard } from '../components/carCard';
 
@@ -49,7 +49,7 @@ const dummyCars = [
         model: "Focus SE",
         mod_preformance: "6-Speed Addition",
         mod_functional: "6-Pack of Sprite Cranberry",
-        mod_cosmetic: "Massive Dent",
+        mod_cosmetic: "6-Massive Dents",
         owner: ["61993b9d8173b3b9b903c56b"],
         createdAt: " 2021-11-28T02:19:52.878+00:00",
         __v: 0,
@@ -59,20 +59,40 @@ const dummyCars = [
 
 export function HomePage() {
 
+    let initialState =
+        //This will need to be an async function to call the DB
+        <div className="columns is-multiline is-variable">
+            {dummyCars.map((car, index) =>
+                <>
+                    <CarCard
+                        key={car._id}
+                        title={`${car.year} ${car.make} ${car.model}`}
+                        modPerformance={car.mod_preformance}
+                        modFunctional={car.mod_functional}
+                        modCosmetic={car.mod_cosmetic}
+                        userCarPhoto={car.photo}
+                        owner={car.owner}
+                        isUser={false}
+                    />
+                </>
+            )}
+        </div>;
+
+    // const carSearch = (make, model, year) => {
+    //     //Async function to search for a car
+    // }
+
+    let [homeCars, setMyCars] = useState<object>(initialState);
+
+
     return (
         <>
             <DropDown />
             <br />
-            <div className="columns is-multiline">
-                {dummyCars.map((car) =>
-                    <CarCard key={car._id} title={`${car.year} ${car.make} ${car.model}`}
-                        modPerformance={car.mod_preformance} modFunctional={car.mod_functional} modCosmetic={car.mod_cosmetic}
-                        userCarPhoto={car.photo}
-                        userInfo={car.createdAt}
-                        isUser={false}
-                    />
-                )}
-            </div>
+            <button onClick={() => console.log("Woof!")} className="button is-large is-success" id="submit" type="button">Search</button>
+            <br />
+            <br />
+            {homeCars}
             <br />
         </>
     );
