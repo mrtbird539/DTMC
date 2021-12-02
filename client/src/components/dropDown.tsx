@@ -19,10 +19,9 @@ export const DropDown = (props: any) => {
   const getModel = async () => {
     const result = await axios.request({
       method: "GET",
-      url: `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/honda/modelyear/2004?format=json`
+      url: `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`
     }
     );
-    console.log(result.data.Results);
     setModel(result.data);
   };
 

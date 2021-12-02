@@ -9,3 +9,18 @@ mutation userCreate($userName: String!, $email: String!) {
         email
     }
 }`
+
+export const CREATE_VEHICLE = gql`
+mutation carCreate($carData: CarInput!) {
+    _id
+    userName
+    email
+    cars {
+        year
+        make
+        model
+        mod_preformance
+        mod_functional
+        mod_cosmetic
+    }
+}`

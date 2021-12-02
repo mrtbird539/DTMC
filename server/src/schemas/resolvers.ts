@@ -34,8 +34,21 @@ export const resolvers = {
     },
     // CREATE new car
     carCreate: async (args: object) => {
-      return Car.create(args)
+      return User.create(args)
     },
+    // carCreate: async (parent, { carData }, context) => {
+    //   if (context.user) {
+    //     const updatedUser = await User.findByIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $push: { savedBooks: bookData } },
+    //       { new: true }
+    //     );
+
+    //     return updatedUser;
+    //   }
+
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 
     // UPDATE existing car
     carUpdate: async (args: object) => {

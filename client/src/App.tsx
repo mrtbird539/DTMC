@@ -13,10 +13,11 @@ import { DropDown } from './components/dropDown';
 import { GaragePage } from "./pages/Garage";
 import { HomePage } from "./pages/Home";
 
-const client = new ApolloClient({
-  uri: "http://localhost:3001/graphql",
-  cache: new InMemoryCache(),
-});
+  const client = new ApolloClient({
+    uri: "/graphql",
+    cache: new InMemoryCache(),
+  });
+
 
 function App() {
   return (
