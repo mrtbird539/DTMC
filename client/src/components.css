@@ -1,5 +1,6 @@
-.card-back-color {
-    background-color: #ff914d;
+
+div.card-back-color {
+    background-color: #F08f39;
 }
 
 .user-comp-box {
@@ -10,4 +11,5 @@
 
 .car-border {
     border-radius: 25px;
+
 }
