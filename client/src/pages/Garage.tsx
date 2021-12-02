@@ -42,6 +42,19 @@ const dummyCars = [
         createdAt: " 2021-11-28T02:19:52.878+00:00",
         __v: 0,
         photo: "http://buzzsharer.com/wp-content/uploads/2016/06/corgi-in-car.jpg"
+    },
+    {
+        _id: "619c4fc8f17a58b7e008ggy7",
+        year: 2006,
+        make: "Isuzu",
+        model: "Box Truck",
+        mod_preformance: "Diesel Conversion",
+        mod_functional: "Freezer Added",
+        mod_cosmetic: "Ice Cream Cone on Top",
+        owner: ["61993b9d8173b3b9b903c56b"],
+        createdAt: " 2021-11-28T02:19:52.878+00:00",
+        __v: 0,
+        photo: "http://buzzsharer.com/wp-content/uploads/2016/06/corgi-in-car.jpg"
     }
 ];
 
@@ -62,16 +75,6 @@ const newCarModel = {
 
 export const GaragePage = () => {
 
-    // Not currently implemented
-    const checkForEdit = (isUser: any): boolean => {
-        let isUserPage: boolean = false;
-        if (isUser) {
-            isUserPage = true;
-            return isUserPage;
-        };
-        return isUserPage;
-    };
-
     let initialState =
         <div className="columns is-multiline is-variable">
             {dummyCars.map((car, index) =>
@@ -83,10 +86,10 @@ export const GaragePage = () => {
                         modFunctional={car.mod_functional}
                         modCosmetic={car.mod_cosmetic}
                         userCarPhoto={car.photo}
-                        userInfo={car.createdAt}
                         owner={car.owner}
+                        isUser={true}
+                        setCars={() => renderEditCar(car._id, car)}
                     />
-                    <button onClick={() => renderEditCar(car._id, car)} className="button is-link" id="submit" type="button">Edit</button>
                 </>
             )}
         </div>;
@@ -107,8 +110,8 @@ export const GaragePage = () => {
                         modFunctional={props.mod_functional}
                         modCosmetic={props.mod_cosmetic}
                         userCarPhoto={props.photo}
-                        userInfo={props.createdAt}
                         owner={props.owner}
+
                     />
                     <div className="column is-4 is-offset-4">
                         <button onClick={() => setMyCars(initialState)} className="button is-link" id="submit" type="button">Save</button>
@@ -124,7 +127,7 @@ export const GaragePage = () => {
     return (
         <>
             <br />
-            <button onClick={() => renderEditCar("", newCarModel)} className="button is-success" id="submit" type="button">Add a car</button>
+            <button onClick={() => renderEditCar("", newCarModel)} className="button is-large is-success" id="submit" type="button">+</button>
             <br />
             <br />
             {myCars}
