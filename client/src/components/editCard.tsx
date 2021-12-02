@@ -62,13 +62,6 @@ export const EditCard = (props: any) => {
                                     <textarea className="input" id="description" placeholder={props.modCosmetic} name="description"></textarea>
                                 </div>
                             </div>
-
-                            <div className="card-back-color field">
-                                <label className="label">User:</label>
-                                <div className="control">
-                                    <textarea className="has-text-white input" id="description" placeholder={props.userInfo} name="description"></textarea>
-                                </div>
-                            </div>
                             {/* 
                         <div className="field is-grouped">
                             <div className="control">

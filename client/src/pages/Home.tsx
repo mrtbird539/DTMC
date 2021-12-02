@@ -1,6 +1,5 @@
 import React from 'react';
 import { DropDown } from '../components/dropDown';
-
 import { CarCard } from '../components/carCard';
 
 const dummyCars = [
@@ -67,9 +66,10 @@ export function HomePage() {
             <div className="columns is-multiline">
                 {dummyCars.map((car) =>
                     <CarCard key={car._id} title={`${car.year} ${car.make} ${car.model}`}
-                        modList={`Performance: \n ${car.mod_preformance} \n Functional: \n ${car.mod_functional} \n Cosmetic: \n ${car.mod_cosmetic}`}
+                        modPerformance={car.mod_preformance} modFunctional={car.mod_functional} modCosmetic={car.mod_cosmetic}
                         userCarPhoto={car.photo}
                         userInfo={car.createdAt}
+                        isUser={false}
                     />
                 )}
             </div>

@@ -26,6 +26,11 @@ div.is-offset-1 {
   transition: all 500ms ease; 
 }
 
+button.fontChange{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+}
+
 div.is-offset-1:hover{
   color: #ff7a59;
   border: #f73808 solid 1px;
