@@ -13,10 +13,11 @@ import { DropDown } from './components/dropDown';
 import { GaragePage } from "./pages/Garage";
 import { HomePage } from "./pages/Home";
 
-const client = new ApolloClient({
-  uri: "http://localhost:3001/graphql",
-  cache: new InMemoryCache(),
-});
+  const client = new ApolloClient({
+    uri: "/graphql",
+    cache: new InMemoryCache(),
+  });
+
 
 function App() {
   return (
@@ -25,8 +26,6 @@ function App() {
         <div className="App">
           <Header />
           <Navbar />
-          <DropDown />
-          {/* Router pages here */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/myGarage" element={<GaragePage />} />

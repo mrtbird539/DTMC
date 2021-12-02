@@ -2,16 +2,24 @@ import React from "react";
 
 export const CarCard = (props: any) => {
 
+    const checkForEdit = (isUser: any): object => {
+        if (isUser) {
+            return <button onClick={props.setCars} className="button is-warning is-fullwidth is-rounded fontChange" id="submit" type="button">Edit</button>
+
+        };
+        return <></>;
+    };
+
     return (
         <>
             <div className="car-border has-background-black column is-4">
-                <div className="card is-fullwidth card-back-color">
+                <div className="card is-fullwidth card-back-color is-offset-1">
                     <header className="card-back-color card-header">
-                        <p className="has-text-white card-header-title">
+                        <p className="title is-3">
                             {props.title}
                         </p>
                     </header>
-                    <div className="car-border card-back-color card-image">
+                    <div className="card-back-color card-image">
                         <figure className="image">
                             <a href={props.userCarPhoto} target="_blank" rel="noopener noreferrer">
                                 <img src={props.userCarPhoto}
@@ -20,12 +28,18 @@ export const CarCard = (props: any) => {
                         </figure>
                     </div>
                     <div className="content">
-                        <p className="has-text-white title is-4">Modifications:</p>
-                        <p className="has-text-white subtitle is-6">{props.modList}</p>
+                        <p className="title is-4">Performance Mods</p>
+                        <p className="has-text-white subtitle is-6">{props.modPerformance}</p>
                     </div>
-                    <footer className="card-footer">
-                        <p className="has-text-white subtitle is-small">{props.userInfo}</p>
-                    </footer>
+                    <div className="content">
+                        <p className="title is-4">Functional Mods</p>
+                        <p className="has-text-white subtitle is-6">{props.modFunctional}</p>
+                    </div>
+                    <div className="content">
+                        <p className="title is-4">Cosmetic Mods</p>
+                        <p className="has-text-white subtitle is-6">{props.modCosmetic}</p>
+                    </div>
+                    {checkForEdit(props.isUser)}
                 </div>
             </div>
         </>
