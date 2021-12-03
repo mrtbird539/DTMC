@@ -34,6 +34,7 @@ export const DropDown = (props: any) => {
     <div className="columns">
       <Select
         className="column"
+        id="year"
         options={yearOptions}
         onChange={(e) => setYear(e?.value)}
       />
