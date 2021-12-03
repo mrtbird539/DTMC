@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { DropDown } from '../components/dropDown';
 import { CarCard } from '../components/carCard';
 import { NoCarsFound } from '../components/NoCarsFound';
+import { Empty } from '../components/Empty';
 
 const dummyCars = [
     {
@@ -72,20 +73,20 @@ const dummyCars = [
 ];
 
 const matchedCars = { make: "Izuzu", model: "Box Truck", year: 2006 }
-
+const empty= <Empty />
 
 export function HomePage() {
 
     let noCarState =
-    <>
-        <NoCarsFound />;
-        <br />
-        <div className="columns">
-            <div className="column is-4 is-offset-4">
-                <button onClick={() => setMyCars(initialState)} className="button is-warning is-large" id="submit" type="button">Return</button>
+        <>
+            <NoCarsFound />
+            <br />
+            <div className="columns">
+                <div className="column is-4 is-offset-4">
+                    <button onClick={() => setMyCars(initialState)} className="button is-warning is-large" id="submit" type="button">Return</button>
+                </div>
             </div>
-        </div>
-    </>
+        </>
 
     //This function searches for matching cars
     //NOW make it take a value from the search bar
@@ -99,6 +100,9 @@ export function HomePage() {
     const buildSearchedCars = (cars: any[]) => {
         let newState =
             <>
+                <button onClick={() => searchCar()} className="button is-large is-success" id="submit" type="button">Search</button>
+                <br />
+                <br />
                 <div className="columns is-multiline is-variable">
                     {cars.map((car) =>
                         <CarCard
@@ -124,27 +128,33 @@ export function HomePage() {
             console.log("ZERO!")
             return setMyCars(noCarState);
         }
+        setMyCars(empty);
         setMyCars(newState);
     };
 
     let initialState =
-        //This will need to be an async function to call the DB
-        <div className="columns is-multiline is-variable">
-            {dummyCars.map((car, index) =>
-                <>
-                    <CarCard
-                        key={car._id}
-                        title={`${car.year} ${car.make} ${car.model}`}
-                        modPerformance={car.mod_preformance}
-                        modFunctional={car.mod_functional}
-                        modCosmetic={car.mod_cosmetic}
-                        userCarPhoto={car.photo}
-                        owner={car.owner}
-                        isUser={false}
-                    />
-                </>
-            )};
-        </div>;
+        <>
+            <button onClick={() => searchCar()} className="button is-large is-success" id="submit" type="button">Search</button>
+            <br />
+            <br />
+            {/* //This will need to be an async function to call the DB */}
+            <div className="columns is-multiline is-variable">
+                {dummyCars.map((car, index) =>
+                    <>
+                        <CarCard
+                            key={car._id}
+                            title={`${car.year} ${car.make} ${car.model}`}
+                            modPerformance={car.mod_preformance}
+                            modFunctional={car.mod_functional}
+                            modCosmetic={car.mod_cosmetic}
+                            userCarPhoto={car.photo}
+                            owner={car.owner}
+                            isUser={false}
+                        />
+                    </>
+                )}
+            </div>
+        </>
 
     let [homeCars, setMyCars] = useState<object>(initialState);
 
@@ -152,9 +162,6 @@ export function HomePage() {
     return (
         <>
             <DropDown />
-            <br />
-            <button onClick={() => searchCar()} className="button is-large is-success" id="submit" type="button">Search</button>
-            <br />
             <br />
             {homeCars}
             <br />
