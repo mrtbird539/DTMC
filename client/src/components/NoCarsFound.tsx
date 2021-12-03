@@ -6,5 +6,5 @@ export const NoCarsFound = () => {
         <div>
             <h1 className="title">Dude, There's No Cars!</h1>
         </div>
-    )
-}
+    );
+};
