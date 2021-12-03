@@ -76,26 +76,29 @@ const newCarModel = {
 export const GaragePage = () => {
 
     let initialState =
-        <div className="columns is-multiline is-variable">
-            {dummyCars.map((car, index) =>
-                <>
-                    <CarCard
-                        key={car._id}
-                        title={`${car.year} ${car.make} ${car.model}`}
-                        modPerformance={car.mod_preformance}
-                        modFunctional={car.mod_functional}
-                        modCosmetic={car.mod_cosmetic}
-                        userCarPhoto={car.photo}
-                        owner={car.owner}
-                        isUser={true}
-                        setCars={() => renderEditCar(car._id, car)}
-                    />
-                </>
-            )}
-        </div>;
-
-
-
+        <>
+            <button onClick={() => renderEditCar("", newCarModel)} className="button is-large is-success" id="submit" type="button">+</button>
+            <br />
+            <br />
+            {/* //This will need to be an async function to call the DB */}
+            <div className="columns is-multiline is-variable">
+                {dummyCars.map((car, index) =>
+                    <>
+                        <CarCard
+                            key={car._id}
+                            title={`${car.year} ${car.make} ${car.model}`}
+                            modPerformance={car.mod_preformance}
+                            modFunctional={car.mod_functional}
+                            modCosmetic={car.mod_cosmetic}
+                            userCarPhoto={car.photo}
+                            owner={car.owner}
+                            isUser={true}
+                            setCars={() => renderEditCar(car._id, car)}
+                        />
+                    </>
+                )}
+            </div>
+        </>;
 
     let [myCars, setMyCars] = useState<object>(initialState);
 
@@ -111,6 +114,9 @@ export const GaragePage = () => {
                         modCosmetic={props.mod_cosmetic}
                         userCarPhoto={props.photo}
                         owner={props.owner}
+                    //Needs to save data and send to API first, then re-render
+                    // saveBtn={() => setMyCars(initialState)}
+                    // cancelBtn={() => setMyCars(initialState)}
 
                     />
                     <div className="column is-4 is-offset-4">
@@ -126,9 +132,6 @@ export const GaragePage = () => {
     // JXS Component
     return (
         <>
-            <br />
-            <button onClick={() => renderEditCar("", newCarModel)} className="button is-large is-success" id="submit" type="button">+</button>
-            <br />
             <br />
             {myCars}
             <br />
