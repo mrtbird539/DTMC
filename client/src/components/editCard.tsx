@@ -11,15 +11,7 @@ export const EditCard = (props: any) => {
         return value;
     };
 
-    // const saveBtn = (props: any) => {
-    //     return<button onClick={props.saveBtn} className="button is-link" id="submit" type="button">Save</button>
-    // };
-
-    // const cancelBtn = (props: any) => {
-    //     return <button onClick={props.canelBtn} className="button is-danger" id="submit" type="button">Cancel</button>
-    // };
-
-
+    
     return (
         <div className="has-background-black column is-6 is-offset-3">
             <div className="card-back-color card is-fullwidth">
@@ -34,7 +26,7 @@ export const EditCard = (props: any) => {
                             <div className="card-back-color field">
                                 <label className="label">Make, Model, Year</label>
                                 <div className="control">
-                                    <DropDown className="dropdown" id="dropdown" name="dropdown"/>
+                                    <DropDown className="dropdown" id="make-model-year" name="dropdown"/>
                                 </div>
                             </div>
 
@@ -79,8 +71,6 @@ export const EditCard = (props: any) => {
                         </div> */}
 
                             <div className="field is-grouped">
-                                {/* {saveBtn}
-                                {cancelBtn} */}
                                 <div className="control">
                                 </div>
                             </div>
