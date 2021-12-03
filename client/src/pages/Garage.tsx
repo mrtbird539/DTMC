@@ -3,6 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { CarCard } from '../components/carCard';
 import { EditCard } from '../components/editCard';
 
+import { useMutation } from '@apollo/client';
+import { CREATE_VEHICLE } from '../utils/mutations';
+import { useAuth0, User } from "@auth0/auth0-react";
+
 const dummyCars = [
     {
         _id: "619c4fc8f17a58b7e008d83c",
@@ -51,7 +55,7 @@ const dummyCars = [
         mod_preformance: "Diesel Conversion",
         mod_functional: "Freezer Added",
         mod_cosmetic: "Ice Cream Cone on Top",
-        owner: ["61993b9d8173b3b9b903c56b"],
+        owner: [],
         createdAt: " 2021-11-28T02:19:52.878+00:00",
         __v: 0,
         photo: "http://buzzsharer.com/wp-content/uploads/2016/06/corgi-in-car.jpg"
@@ -74,6 +78,16 @@ const newCarModel = {
 };
 
 export const GaragePage = () => {
+    const { user, isAuthenticated }: User = useAuth0();
+    // const { email } = user;
+
+    const [createCar] = useMutation(CREATE_VEHICLE);
+    const handleAddCar = async () => {
+        const { data } = await createCar({
+            variables: { carData: newCarModel }
+        })
+
+    }
 
     let initialState =
         <>
@@ -81,7 +95,7 @@ export const GaragePage = () => {
             <br />
             <br />
             {/* //This will need to be an async function to call the DB */}
-            <div className="columns is-multiline is-variable">
+            <div className="columns is-multiline is-centered is-variable">
                 {dummyCars.map((car, index) =>
                     <>
                         <CarCard
