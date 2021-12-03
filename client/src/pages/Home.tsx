@@ -72,7 +72,7 @@ const dummyCars = [
     }
 ];
 
-const matchedCars = { make: "Isuzu", model: "Box Truck", year: 2006 }
+const matchedCars = { make: "Izuzu", model: "Box Truck", year: 2006 }
 const empty= <Empty />
 
 export function HomePage() {
@@ -96,14 +96,14 @@ export function HomePage() {
         buildSearchedCars(buildCars);
     };
 
-    //This code is sopping wet
+
     const buildSearchedCars = (cars: any[]) => {
         let newState =
             <>
                 <button onClick={() => searchCar()} className="button is-large is-success" id="submit" type="button">Search</button>
                 <br />
                 <br />
-                <div className="columns is-multiline is-centered is-variable">
+                <div className="columns is-multiline is-variable">
                     {cars.map((car) =>
                         <CarCard
                             key={car._id}
@@ -138,7 +138,7 @@ export function HomePage() {
             <br />
             <br />
             {/* //This will need to be an async function to call the DB */}
-            <div className="columns is-multiline is-centered is-variable">
+            <div className="columns is-multiline is-variable">
                 {dummyCars.map((car, index) =>
                     <>
                         <CarCard

@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import {gql} from "@apollo/client";
 
 export const CREATE_USER = gql`
 
@@ -11,19 +11,16 @@ mutation userCreate($userName: String!, $email: String!) {
 }`
 
 export const CREATE_VEHICLE = gql`
-mutation carCreate($email: String!, $carData: CarInput!) {
-    carCreate(email: $email, carData: $carData) {
-        _id
-        userName
-        email
-        cars {
-            year
-            make
-            model
-            mod_preformance
-            mod_functional
-            mod_cosmetic
-            photo
-        }
+mutation carCreate($carData: CarInput!) {
+    _id
+    userName
+    email
+    cars {
+        year
+        make
+        model
+        mod_preformance
+        mod_functional
+        mod_cosmetic
     }
 }`

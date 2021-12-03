@@ -27,7 +27,6 @@ export const CarCard = (props: any) => {
                             </a>
                         </figure>
                     </div>
-                    <br />
                     <div className="content">
                         <p className="title is-4">Performance Mods</p>
                         <p className="has-text-white subtitle is-6">{props.modPerformance}</p>
