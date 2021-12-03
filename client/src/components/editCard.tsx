@@ -11,7 +11,7 @@ export const EditCard = (props: any) => {
         return value;
     };
 
-
+    
     return (
         <div className="has-background-black column is-6 is-offset-3">
             <div className="card-back-color card is-fullwidth">
@@ -26,7 +26,7 @@ export const EditCard = (props: any) => {
                             <div className="card-back-color field">
                                 <label className="label">Make, Model, Year</label>
                                 <div className="control">
-                                    <DropDown />
+                                    <DropDown className="dropdown" id="make-model-year" name="dropdown"/>
                                 </div>
                             </div>
 
@@ -40,26 +40,26 @@ export const EditCard = (props: any) => {
                             <div className="field">
                                 <label className="label">Photo:</label>
                                 <div className="control">
-                                    <textarea className="input" id="description" placeholder="Enter URL Here" name="description"></textarea>
+                                    <textarea className="input" id="photo" placeholder="Enter URL Here" name="photo"></textarea>
                                 </div>
                             </div>
 
                             <div className="card-back-color field">
                                 <div className="has-text-white control">
                                     <label className="label">Performance Mods</label>
-                                    <textarea className="input" id="description" placeholder={props.modPerformance} name="description"></textarea>
+                                    <textarea className="input" id="performance-mods" placeholder={props.modPerformance} name="performance-mods"></textarea>
                                 </div>
                             </div>
                             <div className="card-back-color field">
                                 <div className="has-text-white control">
                                     <label className="label">Functional Mods</label>
-                                    <textarea className="input" id="description" placeholder={props.modFunctional} name="description"></textarea>
+                                    <textarea className="input" id="functional-mods" placeholder={props.modFunctional} name="functional-mods"></textarea>
                                 </div>
                             </div>
                             <div className="card-back-color field">
                                 <div className="has-text-white control">
                                     <label className="label">Cosmetic Mods</label>
-                                    <textarea className="input" id="description" placeholder={props.modCosmetic} name="description"></textarea>
+                                    <textarea className="input" id="cosmetic-mods" placeholder={props.modCosmetic} name="cosmetic-mods"></textarea>
                                 </div>
                             </div>
                             {/* 

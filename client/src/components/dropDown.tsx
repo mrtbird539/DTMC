@@ -1,46 +1,48 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, Fragment, useEffect } from "react";
 import Select from "react-select";
 import axios from "axios";
-import AsyncSelect from 'react-select/async';
+import { makeOptions, yearOptions } from "../utils/ymm";
 
 export const DropDown = (props: any) => {
-  const [year, setYear] = useState<number | undefined>(2000);
-  const [yearOptions, setYearOptions] = useState([{ value: 1995, label: '1995' }]);
-  const [make, setMake] = useState([]);
-  const [model, setModel] = useState([]);
+  const [year, setYear] = useState<number | undefined>();
+  const [make, setMake] = useState<string | undefined>();
+  const [model, setModel] = useState<string | undefined>();
+  const [modelOptions, setModelOptions] = useState<
+    { value: string; label: string }[]
+  >([]);
 
-  const [inputValue, setValue] = useState('');
-
-  useEffect( () => {
-    console.log({year});
-  }, [year]);
-
-  const getModel = async () => {
-    const result = await axios.request({
-      method: "GET",
-      url: `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`
+  useEffect(() => {
+    if (make) {
+      getModel(make, year);
     }
+  }, [make]);
+
+  const getModel = async (make: any, year: any) => {
+    const result = await axios.get(
+      `https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`
     );
-    setModel(result.data);
+    const data = result.data.Results;
+    console.log(data);
+    const options = data.map((r: { Model_Name: string }) => ({
+      value: r.Model_Name,
+      label: r.Model_Name,
+    }));
+    setModelOptions(options);
   };
 
   return (
     <Fragment>
-      <Select options={yearOptions} onChange={(e) => setYear(e?.value)}/>
-      <Select options={make}/>
-      {/* <Select options={model} /> */}
-      <AsyncSelect
-        cacheOptions
-        defaultOptions
-        value={model}
-        // getOptionLabel={e => e.Model_Name}
-        // getOptionValue={e => e.Model_Name}
-        loadOptions={getModel}
-        onInputChange={setValue}
-        // onChange={setModel}
-        />
+      <Select options={yearOptions} onChange={(e) => setYear(e?.value)} />
+      <Select
+        options={makeOptions}
+        isDisabled={!year}
+        onChange={(e) => setMake(e?.value)}
+      />
+      <Select
+        options={modelOptions}
+        isDisabled={!make}
+        onChange={(e) => setModel(e?.value)}
+      />
     </Fragment>
   );
 };
-

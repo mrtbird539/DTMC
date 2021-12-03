@@ -2,7 +2,7 @@ import React from "react";
 
 export const CarCard = (props: any) => {
 
-    const checkForEdit = (isUser: any): object => {
+    const checkForEdit = (isUser: boolean): object => {
         if (isUser) {
             return <button onClick={props.setCars} className="button is-warning is-fullwidth is-rounded fontChange" id="submit" type="button">Edit</button>
 
@@ -27,6 +27,7 @@ export const CarCard = (props: any) => {
                             </a>
                         </figure>
                     </div>
+                    <br />
                     <div className="content">
                         <p className="title is-4">Performance Mods</p>
                         <p className="has-text-white subtitle is-6">{props.modPerformance}</p>
