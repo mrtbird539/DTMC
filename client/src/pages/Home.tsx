@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { DropDown } from '../components/dropDown';
 import { CarCard } from '../components/carCard';
+import { NoCarsFound } from '../components/NoCarsFound';
 
 const dummyCars = [
     {
         _id: "619c4fc8f17a58b7e008d83c",
-        year: 2006,
+        year: 2021,
         make: "Honda",
         model: "Civic Si",
         mod_preformance: "Removed Governer",
@@ -34,6 +35,19 @@ const dummyCars = [
         year: 2006,
         make: "Isuzu",
         model: "Box Truck",
+        mod_preformance: "Air Intake",
+        mod_functional: "Perfprmance Tires",
+        mod_cosmetic: "Bullet Holes",
+        owner: ["61993b9d8173b3b9b903c56b"],
+        createdAt: " 2021-11-28T02:19:52.878+00:00",
+        __v: 0,
+        photo: "http://buzzsharer.com/wp-content/uploads/2016/06/corgi-in-car.jpg"
+    },
+    {
+        _id: "619c4fc8f17a58b7e008ggy7",
+        year: 2006,
+        make: "Isuzu",
+        model: "Box Truck",
         mod_preformance: "Diesel Conversion",
         mod_functional: "Freezer Added",
         mod_cosmetic: "Ice Cream Cone on Top",
@@ -47,9 +61,9 @@ const dummyCars = [
         year: 2006,
         make: "Ford",
         model: "Focus SE",
-        mod_preformance: "6-Speed Addition",
-        mod_functional: "6-Pack of Sprite Cranberry",
-        mod_cosmetic: "6-Massive Dents",
+        mod_preformance: "8-Speed Addition",
+        mod_functional: "8-Pack of Sprite Cranberry",
+        mod_cosmetic: "8-Massive Dents",
         owner: ["61993b9d8173b3b9b903c56b"],
         createdAt: " 2021-11-28T02:19:52.878+00:00",
         __v: 0,
@@ -57,7 +71,61 @@ const dummyCars = [
     }
 ];
 
+const matchedCars = { make: "Izuzu", model: "Box Truck", year: 2006 }
+
+
 export function HomePage() {
+
+    let noCarState =
+    <>
+        <NoCarsFound />;
+        <br />
+        <div className="columns">
+            <div className="column is-4 is-offset-4">
+                <button onClick={() => setMyCars(initialState)} className="button is-warning is-large" id="submit" type="button">Return</button>
+            </div>
+        </div>
+    </>
+
+    //This function searches for matching cars
+    //NOW make it take a value from the search bar
+    const searchCar = async () => {
+        const buildCars: any[] = await dummyCars.filter(car => car.make == matchedCars.make && car.model == matchedCars.model && car.year == matchedCars.year);
+        console.log(buildCars);
+        buildSearchedCars(buildCars);
+    };
+
+
+    const buildSearchedCars = (cars: any[]) => {
+        let newState =
+            <>
+                <div className="columns is-multiline is-variable">
+                    {cars.map((car) =>
+                        <CarCard
+                            key={car._id}
+                            title={`${car.year} ${car.make} ${car.model}`}
+                            modPerformance={car.mod_preformance}
+                            modFunctional={car.mod_functional}
+                            modCosmetic={car.mod_cosmetic}
+                            userCarPhoto={car.photo}
+                            owner={car.owner}
+                            isUser={false}
+                        />
+                    )}
+                </div>
+                <br />
+                <div className="columns">
+                    <div className="column is-4 is-offset-4">
+                        <button onClick={() => setMyCars(initialState)} className="button is-warning is-large" id="submit" type="button">Return</button>
+                    </div>
+                </div>
+            </>
+        if (cars.length == 0) {
+            console.log("ZERO!")
+            return setMyCars(noCarState);
+        }
+        setMyCars(newState);
+    };
 
     let initialState =
         //This will need to be an async function to call the DB
@@ -75,12 +143,8 @@ export function HomePage() {
                         isUser={false}
                     />
                 </>
-            )}
+            )};
         </div>;
-
-    // const carSearch = (make, model, year) => {
-    //     //Async function to search for a car
-    // }
 
     let [homeCars, setMyCars] = useState<object>(initialState);
 
@@ -89,11 +153,11 @@ export function HomePage() {
         <>
             <DropDown />
             <br />
-            <button onClick={() => console.log("Woof!")} className="button is-large is-success" id="submit" type="button">Search</button>
+            <button onClick={() => searchCar()} className="button is-large is-success" id="submit" type="button">Search</button>
             <br />
             <br />
             {homeCars}
             <br />
         </>
     );
-}
+};
