@@ -81,7 +81,7 @@ export const GaragePage = () => {
             <br />
             <br />
             {/* //This will need to be an async function to call the DB */}
-            <div className="columns is-multiline is-variable">
+            <div className="columns is-multiline is-centered is-variable">
                 {dummyCars.map((car, index) =>
                     <>
                         <CarCard

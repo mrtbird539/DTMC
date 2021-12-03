@@ -14,6 +14,11 @@ body {
   pointer-events: none;
 }
 
+div.column {
+  /* margin-bottom: 15px; */
+  margin: 10px;
+}
+
 div.is-offset-1 {
   border: none;
   background: #ff7a59;
