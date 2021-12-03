@@ -1,16 +1,21 @@
 import { Car, User } from "../models";
 import { auth } from "express-openid-connect";
 
+
 export const resolvers = {
   Query: {
+    findUser: async (parent: any, { email }: { email: string}) => {
+      const user = await User.findOne({ email });
+      return user;
+    },
     // GET 4 most recently added cars
     carCarousel: async () => {
       return Car.find().sort({ createdAt: -1 }).limit(4)
     },
 
     // GET car by year, make, and model
-    carSearchYMM: async ({ year, make, model }: any) => {
-      return Car.find({ year, make, model }).sort({ createdAt: -1 })
+    carSearchYMM: async (parent: any, { year, make, model }: {year: number, make: string, model: string}) => {
+      return Car.find({ year, make, model });
     },
 
     // GET car by ID
@@ -32,23 +37,15 @@ export const resolvers = {
       return newUser;
 
     },
-    // CREATE new car
-    carCreate: async (args: object) => {
-      return User.create(args)
+    //CREATE new car
+    carCreate: async (parent: any, { email }: {email: string}, { carData }: any) => {
+      const updatedUser = await User.findOneAndUpdate(
+        { email },
+        { $push: { cars: { carData } } },
+        { new: true }
+      )
+      return updatedUser;
     },
-    // carCreate: async (parent, { carData }, context) => {
-    //   if (context.user) {
-    //     const updatedUser = await User.findByIdAndUpdate(
-    //       { _id: context.user._id },
-    //       { $push: { savedBooks: bookData } },
-    //       { new: true }
-    //     );
-
-    //     return updatedUser;
-    //   }
-
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
 
     // UPDATE existing car
     carUpdate: async (args: object) => {
@@ -59,7 +56,8 @@ export const resolvers = {
     carDelete: async ({ _id }: any) => {
       return Car.findOneAndDelete({ _id })
     }
-  },
-};
+  }
+}
+
 
 
