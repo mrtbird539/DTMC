@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import { User } from "./User";
 
 const carSchema = new Schema({
   year: {
@@ -33,7 +34,7 @@ const carSchema = new Schema({
   },
   owner: [
     {
-      type: Schema.Types.ObjectId,
+      type: String,
       ref: "User"
     }
   ]

@@ -24,8 +24,8 @@ export const resolvers = {
     },
 
     // GET user's garage
-    userGarage: async ({ _id }: any) => {
-      return User.findById({ _id }).populate('cars')
+    userGarage: async ({ User: email }: any) => {
+      return Car.find({ email }).populate('cars')
     },
   },
 

@@ -16,6 +16,7 @@ export const typeDefs = gql`
         mod_functional: String
         mod_cosmetic: String
         photo: String
+        owner: String
     }
 
     input CarInput{
@@ -38,7 +39,7 @@ export const typeDefs = gql`
         carCarousel: [Car]
         carSearchYMM(year: Int!, make: String!, model: String! ): [Car]
         carFindOne(_id: ID!): Car
-        userGarage(_id: ID!): User
+        userGarage(email: String!): User
     }
 
     type Mutation {
