@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import axios from "axios";
 import { makeOptions, yearOptions } from "../utils/ymm";
@@ -31,20 +31,27 @@ export const DropDown = (props: any) => {
   };
 
   return (
-    <Fragment>
-      <Select options={yearOptions} placeholder={"Year"} onChange={(e) => setYear(e?.value)} />
+    <div className="columns">
       <Select
-      placeholder={"Make"}
+        className="column"
+        options={yearOptions}
+        placeholder={"Year"}
+        onChange={(e) => setYear(e?.value)}
+      />
+      <Select
+        className="column"
+        placeholder={"Make"}
         options={makeOptions}
         isDisabled={!year}
         onChange={(e) => setMake(e?.value)}
       />
       <Select
-      placeholder={"Model"}
+        className="column"
+        placeholder={"Model"}
         options={modelOptions}
         isDisabled={!make}
         onChange={(e) => setModel(e?.value)}
       />
-    </Fragment>
+    </div>
   );
 };
