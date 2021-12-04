@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useAuth0, User } from "@auth0/auth0-react";
 import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "../utils/mutations";
-import { FIND_USER } from "../utils/queries";
 import axios from "axios";
 import { config } from "dotenv";
 import { is } from "@babel/types";
