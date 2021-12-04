@@ -32,13 +32,15 @@ export const DropDown = (props: any) => {
 
   return (
     <Fragment>
-      <Select options={yearOptions} onChange={(e) => setYear(e?.value)} />
+      <Select options={yearOptions} placeholder={"Year"} onChange={(e) => setYear(e?.value)} />
       <Select
+      placeholder={"Make"}
         options={makeOptions}
         isDisabled={!year}
         onChange={(e) => setMake(e?.value)}
       />
       <Select
+      placeholder={"Model"}
         options={modelOptions}
         isDisabled={!make}
         onChange={(e) => setModel(e?.value)}

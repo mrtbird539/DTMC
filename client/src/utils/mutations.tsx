@@ -1,15 +1,15 @@
 import { gql } from "@apollo/client";
 // review userCreate Mutation
 export const CREATE_USER = gql`
-
-mutation userCreate($userName: String!, $email: String!) {
+  mutation userCreate($userName: String!, $email: String!) {
     userCreate(userName: $userName, email: $email) {
         _id
         userName
         email
         cars
     }
-}`
+  }
+`;
 
 export const CREATE_VEHICLE = gql`
 
@@ -25,4 +25,5 @@ mutation CarCreate($year: Int, $make: String, $model: String, $modPreformance: S
       photo
       user
     }
-}`
+  }
+`;

@@ -8,7 +8,6 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { Header } from './components/header';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/footer';
-import { DropDown } from './components/dropDown';
 
 import { GaragePage } from "./pages/Garage";
 import { HomePage } from "./pages/Home";

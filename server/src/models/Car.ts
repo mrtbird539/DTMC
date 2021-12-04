@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import { User } from "./User";
 
 const carSchema = new Schema({
   year: {
