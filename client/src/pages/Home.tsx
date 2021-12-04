@@ -9,7 +9,7 @@ const dummyCars = [
         _id: "619c4fc8f17a58b7e008d83c",
         year: 2021,
         make: "Honda",
-        model: "Civic Si",
+        model: "Civic",
         mod_preformance: "Removed Governer",
         mod_functional: "Huge Spoiler",
         mod_cosmetic: "Underglow",
@@ -20,9 +20,9 @@ const dummyCars = [
     },
     {
         _id: "619c4fc8f17a58b7e008bb87",
-        year: 2006,
+        year: 2010,
         make: "Mitsubishi",
-        model: "Lancer EVO",
+        model: "Lancer",
         mod_preformance: "NO2",
         mod_functional: "Dropped",
         mod_cosmetic: "White Tires",
@@ -35,33 +35,20 @@ const dummyCars = [
         _id: "619c4fc8f17a58b7e008ggy7",
         year: 2006,
         make: "Isuzu",
-        model: "Box Truck",
-        mod_preformance: "Air Intake",
-        mod_functional: "Perfprmance Tires",
-        mod_cosmetic: "Bullet Holes",
-        owner: ["61993b9d8173b3b9b903c56b"],
-        createdAt: " 2021-11-28T02:19:52.878+00:00",
-        __v: 0,
-        photo: "http://buzzsharer.com/wp-content/uploads/2016/06/corgi-in-car.jpg"
-    },
-    {
-        _id: "619c4fc8f17a58b7e008ggy7",
-        year: 2006,
-        make: "Isuzu",
-        model: "Box Truck",
+        model: "Ascender",
         mod_preformance: "Diesel Conversion",
         mod_functional: "Freezer Added",
         mod_cosmetic: "Ice Cream Cone on Top",
-        owner: ["61993b9d8173b3b9b903c56b"],
+        owner: [],
         createdAt: " 2021-11-28T02:19:52.878+00:00",
         __v: 0,
         photo: "http://buzzsharer.com/wp-content/uploads/2016/06/corgi-in-car.jpg"
     },
     {
         _id: "619c4fc8f17a58b7e008bb88",
-        year: 2006,
+        year: 2003,
         make: "Ford",
-        model: "Focus SE",
+        model: "Focus",
         mod_preformance: "8-Speed Addition",
         mod_functional: "8-Pack of Sprite Cranberry",
         mod_cosmetic: "8-Massive Dents",
@@ -72,7 +59,8 @@ const dummyCars = [
     }
 ];
 
-const matchedCars = { make: "Isuzu", model: "Box Truck", year: 2006 }
+//This needs to be from the
+const matchedCars = { make: "Honda", model: "Civic", year: 2021 }
 const empty = <Empty />
 
 export function HomePage() {
@@ -91,6 +79,7 @@ export function HomePage() {
     //This function searches for matching cars
     //NOW make it take a value from the search bar
     const searchCar = async () => {
+        //Fetch request 
         const buildCars: any[] = await dummyCars.filter(car => car.make == matchedCars.make && car.model == matchedCars.model && car.year == matchedCars.year);
         console.log(buildCars);
         buildSearchedCars(buildCars);

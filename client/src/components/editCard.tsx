@@ -6,7 +6,6 @@ import { makeOptions, yearOptions } from "../utils/ymm";
 
 export const EditCard = (props: any) => {
 
-
     const [year, setYear] = useState<number | undefined>();
     const [make, setMake] = useState<string | undefined>();
     const [model, setModel] = useState<string | undefined>();
@@ -136,8 +135,12 @@ export const EditCard = (props: any) => {
                             </div>
                         </div>
                         <div className="control">
-                            <button className="button is-link" id="submit" type="submit">Save</button>
-                            <a className="button is-danger" href="/myGarage">Cancel</a>
+                            <button className="button is-link" id="submit" type="submit">
+                                <a className="button is-link" href="/myGarage">Save</a>
+                            </button>
+                            <button className="button is-danger" id="submit" type="submit">
+                                <a className="button is-danger" href="/myGarage">Cancel</a>
+                            </button>
                         </div>
                     </div>
                 </form>
