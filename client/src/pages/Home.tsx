@@ -73,7 +73,7 @@ const dummyCars = [
 ];
 
 const matchedCars = { make: "Isuzu", model: "Box Truck", year: 2006 }
-const empty= <Empty />
+const empty = <Empty />
 
 export function HomePage() {
 
@@ -161,6 +161,9 @@ export function HomePage() {
 
     return (
         <>
+            <div className="column is-6 is-offset-3">
+                <p className="title is-2">Search other people's rides</p>
+            </div>
             <DropDown />
             <br />
             {homeCars}

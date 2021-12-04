@@ -146,6 +146,9 @@ export const GaragePage = () => {
     // JXS Component
     return (
         <>
+            <div className="column is-6 is-offset-3">
+                <p className="title is-2">My Garage</p>
+            </div>
             <br />
             {myCars}
             <br />
