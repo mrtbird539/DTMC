@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { CarCard } from '../components/carCard';
 import { EditCard } from '../components/editCard';
 
-import { useMutation } from '@apollo/client';
-import { CREATE_VEHICLE } from '../utils/mutations';
+import { useMutation, useQuery } from '@apollo/client';
+import { CAR_SEARCH_YMM } from '../utils/queries';
 import { useAuth0, User } from "@auth0/auth0-react";
 
 const dummyCars = [
@@ -78,16 +78,14 @@ const newCarModel = {
 };
 
 export const GaragePage = () => {
-    const { user, isAuthenticated }: User = useAuth0();
+    // const { user, isAuthenticated }: User = useAuth0();
     // const { email } = user;
+    const { data } = useQuery(CAR_SEARCH_YMM, {
+        variables: {year: 2006}
+    });
+    const carData = data || [];
+    console.log(carData);
 
-    const [createCar] = useMutation(CREATE_VEHICLE);
-    const handleAddCar = async () => {
-        const { data } = await createCar({
-            variables: { carData: newCarModel }
-        })
-
-    }
 
     let initialState =
         <>

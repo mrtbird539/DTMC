@@ -3,18 +3,15 @@ import { Schema, model } from "mongoose";
 const carSchema = new Schema({
   year: {
     type: Number,
-    required: true,
     min: 1885,
   },
   make: {
     type: String,
-    required: true,
     trim: true,
     lowercase: true,
   },
   model: {
     type: String,
-    required: true,
     trim: true,
     lowercase: true,
   },
@@ -31,12 +28,11 @@ const carSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  owner: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "User"
-    }
-  ]
+  user: {
+    type: String,
+    trim: true,
+    lowercase: true,
+  }
   // Color?
 });
 

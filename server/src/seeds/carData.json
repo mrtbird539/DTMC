@@ -1,12 +1,12 @@
 [
-    {
+    {  
         "year": 1995,
         "make": "Ford",
         "model": "Junk",
         "mod_preformance": "Dunno",
         "mod_functional": "Glass packs",
         "mod_cosmetic": "Green Paint",
-        "owner": "61993b9d8173b3b9b903c56b"
+        "user": "noyes.parker@gmail.com"
     },
     {
         "year": 2006,
@@ -15,7 +15,7 @@
         "mod_preformance": "Poo",
         "mod_functional": "Spoiler",
         "mod_cosmetic": "Tinted windows",
-        "owner": "61993b9d8173b3b9b903c56b"
+        "user": "noyes.parker@gmail.com"
     },
     {
         "year": 2017,
@@ -24,7 +24,7 @@
         "mod_preformance": "Removed Governor",
         "mod_functional": "Split Pipe Exhaust",
         "mod_cosmetic": "Underglow",
-        "owner": "61993b9d8173b3b9b90KL83"
+        "user": "jas@mailinator.com"
     },
     {
         "year": 2003,
@@ -33,6 +33,6 @@
         "mod_preformance": "NO^2",
         "mod_functional": "2in. Drop",
         "mod_cosmetic": "Massive Spoiler",
-        "owner": "61993b9d8173b3b9b903drD5"
+        "user": "jas@mailinator.com"
     }
 ]

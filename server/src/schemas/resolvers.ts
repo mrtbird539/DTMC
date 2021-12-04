@@ -1,60 +1,32 @@
-import { Car, User } from "../models";
+import { Car } from "../models";
 import { auth } from "express-openid-connect";
 
 
 export const resolvers = {
   Query: {
-    findUser: async (parent: any, { email }: { email: string}) => {
-      const user = await User.findOne({ email });
-      return user;
-    },
-    // GET 4 most recently added cars
-    carCarousel: async () => {
-      return Car.find().sort({ createdAt: -1 }).limit(4)
-    },
-
     // GET car by year, make, and model
-    carSearchYMM: async (parent: any, { year, make, model }: {year: number, make: string, model: string}) => {
-      return Car.find({ year, make, model });
+    carSearchYMM: async (_parent: any, args: any) => {
+      return await Car.find(args);
     },
-
-    // GET car by ID
-    carFindOne: async ({ _id }: any) => {
-      return Car.findById({ _id })
-    },
-
-    // GET user's garage
-    userGarage: async ({ _id }: any) => {
-      return User.findById({ _id }).populate('cars')
-    },
+    myGarage: async (_parent: any, args: any) => {
+      return await Car.find(args);
+    }
   },
 
   Mutation: {
-    //CREATE USER
-    userCreate: async (parent: any, args: object) => {
-
-      const newUser = await User.create(args);
-      return newUser;
-
-    },
     //CREATE new car
-    carCreate: async (parent: any, { email }: {email: string}, { carData }: any) => {
-      const updatedUser = await User.findOneAndUpdate(
-        { email },
-        { $push: { cars: { carData } } },
-        { new: true }
-      )
-      return updatedUser;
+    carCreate: async (_parent: any, args: any) => {
+      return await Car.create(args);
     },
 
     // UPDATE existing car
-    carUpdate: async (args: object) => {
+    carUpdate: async (_parent: any, args: any) => {
       return Car.findOneAndUpdate(args)
     },
 
     // DELETE car by id
-    carDelete: async ({ _id }: any) => {
-      return Car.findOneAndDelete({ _id })
+    carDelete: async (_parent: any, args: any) => {
+      return Car.findOneAndDelete(args)
     }
   }
 }
