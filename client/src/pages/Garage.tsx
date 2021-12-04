@@ -10,9 +10,9 @@ import { useAuth0, User } from "@auth0/auth0-react";
 const dummyCars = [
     {
         _id: "619c4fc8f17a58b7e008d83c",
-        year: 2006,
+        year: 2021,
         make: "Honda",
-        model: "Civic Si",
+        model: "Civic",
         mod_preformance: "Removed Governer",
         mod_functional: "Huge Spoiler",
         mod_cosmetic: "Underglow",
@@ -23,9 +23,9 @@ const dummyCars = [
     },
     {
         _id: "619c4fc8f17a58b7e008bb87",
-        year: 2006,
+        year: 2010,
         make: "Mitsubishi",
-        model: "Lancer EVO",
+        model: "Lancer",
         mod_preformance: "NO2",
         mod_functional: "Dropped",
         mod_cosmetic: "White Tires",
@@ -38,7 +38,7 @@ const dummyCars = [
         _id: "619c4fc8f17a58b7e008ggy7",
         year: 2006,
         make: "Isuzu",
-        model: "Box Truck",
+        model: "Ascender",
         mod_preformance: "Diesel Conversion",
         mod_functional: "Freezer Added",
         mod_cosmetic: "Ice Cream Cone on Top",
@@ -51,10 +51,25 @@ const dummyCars = [
         _id: "619c4fc8f17a58b7e008ggy7",
         year: 2006,
         make: "Isuzu",
-        model: "Box Truck",
+        model: "Ascender",
         mod_preformance: "Diesel Conversion",
         mod_functional: "Freezer Added",
         mod_cosmetic: "Ice Cream Cone on Top",
+        owner: [],
+        createdAt: " 2021-11-28T02:19:52.878+00:00",
+        __v: 0,
+        photo: "http://buzzsharer.com/wp-content/uploads/2016/06/corgi-in-car.jpg"
+
+    }
+    ,
+    {
+        _id: "619c4fc8f17a58b7e008gg34",
+        year: 2006,
+        make: "Accura",
+        model: "RL",
+        mod_preformance: "Cold-Air Intake",
+        mod_functional: "Straight Pipe Exhaust",
+        mod_cosmetic: "Sunroof",
         owner: [],
         createdAt: " 2021-11-28T02:19:52.878+00:00",
         __v: 0,
@@ -76,6 +91,7 @@ const newCarModel = {
     __v: 0,
     photo: ""
 };
+
 
 export const GaragePage = () => {
     const { user, isAuthenticated }: User = useAuth0();
