@@ -125,7 +125,6 @@ export function HomePage() {
                 </div>
             </>
         if (cars.length == 0) {
-            console.log("ZERO!")
             return setMyCars(noCarState);
         }
         setMyCars(empty);
@@ -137,6 +136,9 @@ export function HomePage() {
             <button onClick={() => searchCar()} className="button is-large is-success" id="submit" type="button">Search</button>
             <br />
             <br />
+            <div className="column is-6 is-offset-3">
+                <p className="title is-3 is-italic">Here are some fresh rides...</p>
+            </div>
             {/* //This will need to be an async function to call the DB */}
             <div className="columns is-multiline is-centered is-variable">
                 {dummyCars.map((car, index) =>
