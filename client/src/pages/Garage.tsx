@@ -89,7 +89,7 @@ export const GaragePage = () => {
 
     }
 
-    let initialState =
+    let initialState: JSX.Element =
         <>
             <button onClick={() => renderEditCar("", newCarModel)} className="button is-large is-success" id="submit" type="button">+</button>
             <br />
@@ -128,15 +128,7 @@ export const GaragePage = () => {
                         modCosmetic={props.mod_cosmetic}
                         userCarPhoto={props.photo}
                         owner={props.owner}
-                    //Needs to save data and send to API first, then re-render
-                    // saveBtn={() => setMyCars(initialState)}
-                    // cancelBtn={() => setMyCars(initialState)}
-
                     />
-                    <div className="column is-4 is-offset-4">
-                        <button onClick={() => setMyCars(initialState)} className="button is-link" id="submit" type="button">Save</button>
-                        <button onClick={() => setMyCars(initialState)} className="button is-danger" id="submit" type="button">Cancel</button>
-                    </div>
                 </>
             )
         }

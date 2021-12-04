@@ -77,7 +77,7 @@ const empty = <Empty />
 
 export function HomePage() {
 
-    let noCarState =
+    let noCarState:JSX.Element =
         <>
             <NoCarsFound />
             <br />
@@ -98,7 +98,7 @@ export function HomePage() {
 
     //This code is sopping wet
     const buildSearchedCars = (cars: any[]) => {
-        let newState =
+        let newState:JSX.Element =
             <>
                 <button onClick={() => searchCar()} className="button is-large is-success" id="submit" type="button">Search</button>
                 <br />
@@ -131,7 +131,7 @@ export function HomePage() {
         setMyCars(newState);
     };
 
-    let initialState =
+    let initialState:JSX.Element =
         <>
             <button onClick={() => searchCar()} className="button is-large is-success" id="submit" type="button">Search</button>
             <br />
