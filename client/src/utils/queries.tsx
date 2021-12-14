@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const CAR_SEARCH_YMM = gql`
-query CarSearchYMM($year: Int!, $make: String!, $model: String!) {
-  carSearchYMM(year: $year, make: $make, model: $model) {
+query carSearchYMM($year: Int!, $make: String!, $model: String!) {
+    carSearchYMM(year: $year, make: $make, model: $model) {
     _id
     year
     make
@@ -16,8 +16,23 @@ query CarSearchYMM($year: Int!, $make: String!, $model: String!) {
 }`
 
 export const MY_GARAGE = gql`
-query MyGarage($user: String!) {
+query myGarage($user: String!) {
   myGarage(user: $user) {
+    _id
+    year
+    make
+    model
+    mod_preformance
+    mod_functional
+    mod_cosmetic
+    photo
+    user
+  }
+}
+`
+export const ALL_CARS = gql`
+query allCars {
+  allCars {
     _id
     year
     make

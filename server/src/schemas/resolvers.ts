@@ -4,6 +4,9 @@ import { auth } from "express-openid-connect";
 
 export const resolvers = {
   Query: {
+    allCars: async () => {
+      return await Car.find({})
+    },
     // GET car by year, make, and model
     carSearchYMM: async (_parent: any, args: any) => {
       return await Car.find(args);
@@ -16,12 +19,12 @@ export const resolvers = {
   Mutation: {
     //CREATE new car
     carCreate: async (_parent: any, args: any) => {
-      return await Car.create(args);
+      return await Car.create(args.carInput);
     },
 
     // UPDATE existing car
-    carUpdate: async (_parent: any, args: any) => {
-      return Car.findOneAndUpdate(args)
+    carUpdate: async (_parent: any, { _id }: { _id: string }) => {
+      return Car.findOneAndUpdate({ _id })
     },
 
     // DELETE car by id

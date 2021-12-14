@@ -13,8 +13,8 @@ export const CREATE_USER = gql`
 
 export const CREATE_VEHICLE = gql`
 
-mutation CarCreate($year: Int, $make: String, $model: String, $modPreformance: String, $modFunctional: String, $modCosmetic: String, $photo: String, $user: String) {
-    carCreate(year: $year, make: $make, model: $model, mod_preformance: $modPreformance, mod_functional: $modFunctional, mod_cosmetic: $modCosmetic, photo: $photo, user: $user) {
+mutation carCreate($carInput: CarInput) {
+    carCreate(carInput: $input) {
       _id
       year
       make
@@ -24,6 +24,7 @@ mutation CarCreate($year: Int, $make: String, $model: String, $modPreformance: S
       mod_cosmetic
       photo
       user
+      createdAt
     }
   }
 `;
