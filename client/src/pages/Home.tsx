@@ -3,6 +3,8 @@ import { DropDown } from '../components/dropDown';
 import { CarCard } from '../components/carCard';
 import { NoCarsFound } from '../components/NoCarsFound';
 import { Empty } from '../components/Empty';
+import { useQuery } from '@apollo/client';
+import { CAR_SEARCH_YMM } from '../utils/queries';
 
 const dummyCars = [
     {
@@ -64,6 +66,18 @@ const matchedCars = { make: "Honda", model: "Civic", year: 2021 }
 const empty = <Empty />
 
 export function HomePage() {
+
+
+    // query cars by YMM
+    const { data } =  useQuery(CAR_SEARCH_YMM, {
+        variables: {
+           // year:
+           // make: 
+           // model:
+        }
+    });
+    const carData = data?.carSearchYMM || [];
+    console.log(carData);
 
     let noCarState:JSX.Element =
         <>

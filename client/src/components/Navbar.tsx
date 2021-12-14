@@ -30,7 +30,6 @@ export const Navbar = (props: any) => {
                 <div className="navbar-end">
                     <LoginButton />
                     <a className="navbar-item" href="/">Home</a>
-                    <a className="navbar-item" href="/myGarage">Garage</a>
                 </div>
             </nav>
 

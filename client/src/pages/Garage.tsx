@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
 import { CarCard } from '../components/carCard';
 import { EditCard } from '../components/editCard';
-
-import { useMutation, useQuery } from '@apollo/client';
-import { CAR_SEARCH_YMM } from '../utils/queries';
+import { useQuery, useMutation } from '@apollo/client';
+import { MY_GARAGE } from '../utils/queries';
+import { CREATE_VEHICLE } from '../utils/mutations';
 import { useAuth0, User } from "@auth0/auth0-react";
+
 
 const dummyCars = [
     {
@@ -77,6 +77,7 @@ const dummyCars = [
     }
 ];
 
+
 const newCarModel = {
     isNew: true,
     _id: "",
@@ -86,7 +87,7 @@ const newCarModel = {
     mod_preformance: "",
     mod_functional: "",
     mod_cosmetic: "",
-    owner: [""],
+    user: "",
     createdAt: "",
     __v: 0,
     photo: ""
@@ -94,13 +95,22 @@ const newCarModel = {
 
 
 export const GaragePage = () => {
-    // const { user, isAuthenticated }: User = useAuth0();
-    // const { email } = user;
-    const { data } = useQuery(CAR_SEARCH_YMM, {
-        variables: {year: 2006}
+
+    const { isAuthenticated, isLoading }: User = useAuth0();
+    // query cars by user
+    const { data, loading } = useQuery(MY_GARAGE, {
+        variables: {
+            user: "noyes.parker@gmail.com"
+        },
     });
-    const carData = data || [];
-    console.log(carData);
+    const garageData = data?.myGarage || [];
+
+    garageData.forEach((car: any) => {
+        console.log(garageData);
+    })
+    
+
+    const [carCreate] = useMutation(CREATE_VEHICLE);
 
 
     let initialState: JSX.Element =
@@ -110,7 +120,7 @@ export const GaragePage = () => {
             <br />
             {/* //This will need to be an async function to call the DB */}
             <div className="columns is-multiline is-centered is-variable">
-                {dummyCars.map((car, index) =>
+                {garageData.map((car: any) =>
                     <>
                         <CarCard
                             key={car._id}
@@ -119,7 +129,7 @@ export const GaragePage = () => {
                             modFunctional={car.mod_functional}
                             modCosmetic={car.mod_cosmetic}
                             userCarPhoto={car.photo}
-                            owner={car.owner}
+                            owner={car.user}
                             isUser={true}
                             setCars={() => renderEditCar(car._id, car)}
                         />
@@ -149,15 +159,25 @@ export const GaragePage = () => {
         return console.log("No such car!");
     }
 
+
     // JXS Component
-    return (
-        <>
-            <div className="column is-6 is-offset-3">
-                <p className="title is-2">My Garage</p>
-            </div>
-            <br />
-            {myCars}
-            <br />
-        </>
-    );
+    if (isAuthenticated) {
+
+        return (
+            <>
+                <div className="column is-6 is-offset-3">
+                    <p className="title is-2">My Garage</p>
+                </div>
+                <br />
+                {myCars}
+                <br />
+            </>
+        );
+
+    } else {
+
+        return (
+            <div>Loading...</div>
+        )
+    }
 };
